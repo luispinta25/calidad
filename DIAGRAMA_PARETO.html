@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Pareto - Gestión de la Calidad | Luis Pinta</title>
+    <link rel="icon" href="data:,">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --accent: #1f4e79;
+            --accent-soft: #dfeaf5;
+            --gray: #f6f7f9;
+            --danger: #c0392b;
+            --success: #1e8449;
+            --transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        p, li {
+            text-align: justify;
+        }
+
+        .zoom-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            perspective: 1000px;
+            background: radial-gradient(circle at 20% 10%, #f8fbff 0%, #ffffff 50%, #f7f7f7 100%);
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(2.2) translateZ(300px);
+            transition: var(--transition);
+            padding: 3rem;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1) translateZ(0);
+        }
+
+        .slide.prev {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.1) translateZ(-500px);
+        }
+
+        .panel {
+            width: min(1160px, 95vw);
+            max-height: 88vh;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid #e6ebf0;
+            border-radius: 24px;
+            padding: 2.3rem;
+            box-shadow: 0 22px 50px rgba(26, 26, 26, 0.08);
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            font-size: clamp(2rem, 3.8vw, 3.6rem);
+            line-height: 1.12;
+            margin-bottom: 0.8rem;
+        }
+
+        h2 {
+            font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+            margin-bottom: 1rem;
+            color: #2b2b2b;
+        }
+
+        .lead {
+            font-size: 1.12rem;
+            line-height: 1.75;
+            color: #30343a;
+        }
+
+        .cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.3rem;
+            margin-top: 1.2rem;
+        }
+
+        .card {
+            background: var(--gray);
+            border-left: 5px solid var(--accent);
+            border-radius: 14px;
+            padding: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #253242;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+            line-height: 1.7;
+            color: #2d2d2d;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .step {
+            background: var(--gray);
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .step strong {
+            color: var(--accent);
+        }
+
+        .highlight {
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            background: #eef5fc;
+            border: 1px solid #d7e8f8;
+            color: #1b3f63;
+            font-weight: 600;
+        }
+
+        .chart-wrap {
+            margin-top: 1rem;
+            background: #fbfdff;
+            border: 1px solid #e6edf5;
+            border-radius: 16px;
+            padding: 1rem;
+        }
+
+        .two-cases {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .case {
+            border-radius: 14px;
+            padding: 1rem;
+            background: var(--gray);
+            border-top: 4px solid var(--accent);
+        }
+
+        .case h3 {
+            margin-bottom: 0.6rem;
+            color: #1f3f5e;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 0.8rem;
+            background: #e9f4ec;
+            color: var(--success);
+            font-weight: 600;
+            padding: 0.35rem 0.65rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+        }
+
+        .limits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .adv, .lim {
+            border-radius: 14px;
+            padding: 1rem;
+            min-height: 220px;
+        }
+
+        .adv {
+            background: #eef8f1;
+            border: 1px solid #d3ecd9;
+        }
+
+        .lim {
+            background: #fff3f2;
+            border: 1px solid #ffd9d4;
+        }
+
+        .adv h3 {
+            color: var(--success);
+            margin-bottom: 0.6rem;
+        }
+
+        .lim h3 {
+            color: var(--danger);
+            margin-bottom: 0.6rem;
+        }
+
+        .conclusion {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 1rem;
+            margin-top: 1rem;
+            align-items: stretch;
+        }
+
+        .quote {
+            background: var(--gray);
+            border-left: 6px solid var(--accent);
+            border-radius: 16px;
+            padding: 1.2rem;
+            font-style: italic;
+            line-height: 1.9;
+            color: #2c2f35;
+        }
+
+        .author {
+            background: #f1f5fa;
+            border: 1px dashed #bfd4e8;
+            border-radius: 16px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            width: 0;
+            background: var(--accent);
+            transition: 0.35s;
+            z-index: 120;
+        }
+
+        .controls {
+            position: fixed;
+            right: 30px;
+            bottom: 26px;
+            display: flex;
+            gap: 12px;
+            z-index: 110;
+            transition: opacity 0.4s;
+        }
+
+        .btn {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            border: 1px solid #d8dfe6;
+            background: #fff;
+            color: var(--accent);
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.25s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(31, 78, 121, 0.22);
+        }
+
+        .home-link {
+            position: fixed;
+            top: 26px;
+            left: 26px;
+            color: #718096;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.82rem;
+            letter-spacing: 1.8px;
+            z-index: 110;
+            transition: opacity 0.4s;
+        }
+
+        .hint {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: #5a6673;
+        }
+
+        .intervention-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(20, 30, 43, 0.95);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.35s;
+            z-index: 2000;
+            backdrop-filter: blur(8px);
+        }
+
+        .intervention-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .intervention-content {
+            max-width: 900px;
+        }
+
+        .intervention-content h2 {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            margin-bottom: 1rem;
+        }
+
+        .intervention-content p {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #e6edf5;
+            text-align: center;
+        }
+
+        .final-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .action-btn {
+            text-decoration: none;
+            border: 1px solid #d2dbe5;
+            color: var(--accent);
+            background: #fff;
+            border-radius: 999px;
+            padding: 0.65rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .action-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        body.fullscreen-mode {
+            cursor: none;
+        }
+
+        body.fullscreen-mode .controls,
+        body.fullscreen-mode .home-link,
+        body.fullscreen-mode .progress {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 940px) {
+            .panel {
+                max-height: 92vh;
+                padding: 1.2rem;
+                overflow: auto;
+            }
+            .cols,
+            .two-cases,
+            .limits,
+            .conclusion,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            .slide {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress" id="progress"></div>
+    <a href="../../../index.html" class="home-link">← Luis Pinta</a>
+
+    <div class="intervention-overlay" id="interventionOverlay">
+        <div class="intervention-content">
+            <span style="display:inline-block;background:#e67e22;padding:6px 14px;border-radius:999px;font-size:0.8rem;letter-spacing:2px;font-weight:700;margin-bottom:1rem;">MODO CONFERENCISTA</span>
+            <h2>Intervención Personal</h2>
+            <p id="interventionText">"En mi opinión, Pareto nos enseña que mejorar calidad también es saber priorizar con criterio."</p>
+            <div style="margin-top:2rem;opacity:0.75;font-size:0.95rem;letter-spacing:1px;">LUIS PINTA | Machachi, Mejía · Presiona TAB para volver</div>
+        </div>
+    </div>
+
+    <div class="zoom-container">
+        <section class="slide active">
+            <div class="panel" style="text-align:center;display:flex;flex-direction:column;justify-content:center;">
+                <span class="kicker" style="justify-content:center;"><i class="fas fa-chart-column"></i> Gestión de la Calidad</span>
+                <h1>Diagrama de Pareto</h1>
+                <h2>Cómo identificar las causas que más impactan un problema</h2>
+                <div style="width:90px;height:3px;background:var(--accent);margin:1rem auto 1.3rem;"></div>
+                <p class="lead" style="text-align:center;max-width:840px;margin:0 auto;">En mi opinión, esta herramienta permite concentrar esfuerzos en lo verdaderamente crítico y evitar decisiones dispersas. A día de hoy, sigue siendo clave para proyectos de mejora continua.</p>
+                <p style="margin-top:2rem;font-weight:600;">Luis Armando Pinta Cajilema</p>
+                <p style="margin-top:0.3rem;color:#5f6f81;">Machachi - Ecuador · 2026</p>
+                <p class="hint">Navega con ← → ↑ ↓, PageUp/PageDown o Espacio · F para pantalla completa · TAB para intervención</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-circle-info"></i> Concepto</span>
+                <h1>¿Qué es el Diagrama de Pareto?</h1>
+                <p class="lead">Es una herramienta de análisis que organiza causas o problemas desde el más frecuente al menos frecuente, combinando barras y una curva de porcentaje acumulado. En mi opinión, su valor está en que convierte una lista de fallas en una guía clara de prioridades.</p>
+                <div class="cols">
+                    <div class="card">
+                        <h3><i class="fas fa-bars"></i> Barras</h3>
+                        <ul>
+                            <li>Muestran cada causa o categoría.</li>
+                            <li>Se ordenan desde la más frecuente a la menos frecuente.</li>
+                            <li>Permiten comparar impacto de forma inmediata.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-chart-line"></i> Línea acumulada</h3>
+                        <ul>
+                            <li>Representa el porcentaje acumulado del total.</li>
+                            <li>Ayuda a identificar el punto de corte de prioridad.</li>
+                            <li>Facilita decisiones con base en evidencia.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-bullseye"></i> Finalidad</span>
+                <h1>¿Qué busca detectar o solucionar?</h1>
+                <p class="lead">El Diagrama de Pareto no elimina problemas por sí solo; ayuda a detectar cuáles causas generan la mayor parte del impacto para decidir dónde actuar primero y lograr mejoras más rápidas.</p>
+                <div class="steps" style="margin-top:1rem;">
+                    <div class="step"><strong>Detectar:</strong> causas repetitivas con mayor frecuencia o costo.</div>
+                    <div class="step"><strong>Priorizar:</strong> enfocar recursos en lo más crítico.</div>
+                    <div class="step"><strong>Reducir:</strong> retrabajos, quejas, tiempos muertos y desperdicios.</div>
+                    <div class="step"><strong>Soportar:</strong> decisiones objetivas basadas en datos.</div>
+                    <div class="step"><strong>Controlar:</strong> comparar el antes y después de las acciones.</div>
+                    <div class="step"><strong>Mejorar:</strong> sostener mejora continua con revisiones periódicas.</div>
+                </div>
+                <div class="highlight"><i class="fas fa-lightbulb"></i> Idea central: primero se corrigen los “pocos vitales” y luego los “muchos triviales”.</div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-percent"></i> Teoría 80/20</span>
+                <h1>Principio de Pareto: 80/20</h1>
+                <p class="lead">La teoría 80/20 plantea que, en muchos procesos, una minoría de causas genera la mayoría de los efectos. A día de hoy, se usa como regla de priorización: no es exacta ni obligatoria, pero orienta muy bien la toma de decisiones.</p>
+                <div class="cols">
+                    <div class="card">
+                        <h3><i class="fas fa-key"></i> ¿Cómo se interpreta?</h3>
+                        <ul>
+                            <li>20% de causas puede explicar cerca del 80% del problema.</li>
+                            <li>Se debe actuar primero sobre ese grupo crítico.</li>
+                            <li>El porcentaje puede variar (70/30, 75/25, 90/10).</li>
+                            <li>Lo importante es detectar concentración del impacto.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-calculator"></i> Ejemplo rápido</h3>
+                        <ul>
+                            <li>Si hay 100 reclamos, no todos pesan igual.</li>
+                            <li>Las 2 o 3 causas más frecuentes pueden explicar ~80 reclamos.</li>
+                            <li>Corregir esas causas reduce más rápido el problema total.</li>
+                            <li>Luego se intervienen las causas de menor impacto.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight"><i class="fas fa-flag-checkered"></i> Conclusión práctica: Pareto ayuda a decidir qué atacar primero para lograr el mayor resultado con el menor esfuerzo posible.</div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-landmark"></i> Origen y uso</span>
+                <h1>¿Quién lo inventó y dónde se aplica?</h1>
+                <div class="cols">
+                    <div class="card">
+                        <h3><i class="fas fa-user"></i> Origen del enfoque</h3>
+                        <ul>
+                            <li>Vilfredo Pareto observó que una parte pequeña de causas concentra gran parte de efectos.</li>
+                            <li>Joseph Juran llevó este principio a la gestión de la calidad industrial.</li>
+                            <li>Por eso también se conoce como principio 80/20 (aproximado, no rígido).</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-briefcase"></i> Aplicaciones comunes</h3>
+                        <ul>
+                            <li>Control de quejas y reclamos de clientes.</li>
+                            <li>Defectos de producción y no conformidades.</li>
+                            <li>Tiempos de espera en atención o despacho.</li>
+                            <li>Errores administrativos y de facturación.</li>
+                            <li>Priorización de acciones de mejora en PHVA.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-diagram-project"></i> Estructura visual</span>
+                <h1>Elementos del Diagrama de Pareto</h1>
+                <div class="chart-wrap">
+                    <svg viewBox="0 0 980 400" style="width:100%;height:auto;">
+                        <line x1="80" y1="330" x2="910" y2="330" stroke="#c9d3de" stroke-width="2"/>
+                        <line x1="80" y1="70" x2="80" y2="330" stroke="#c9d3de" stroke-width="2"/>
+                        <line x1="910" y1="70" x2="910" y2="330" stroke="#c9d3de" stroke-width="2"/>
+
+                        <rect x="120" y="120" width="80" height="210" fill="#2f6ea5" opacity="0.9"/>
+                        <rect x="250" y="165" width="80" height="165" fill="#3b7db4" opacity="0.9"/>
+                        <rect x="380" y="205" width="80" height="125" fill="#4f8fc4" opacity="0.9"/>
+                        <rect x="510" y="240" width="80" height="90" fill="#67a1d1" opacity="0.9"/>
+                        <rect x="640" y="270" width="80" height="60" fill="#7bb2dc" opacity="0.9"/>
+
+                        <polyline points="160,238 290,178 420,133 550,103 680,80" fill="none" stroke="#c0392b" stroke-width="4"/>
+                        <circle cx="160" cy="238" r="5" fill="#c0392b"/>
+                        <circle cx="290" cy="178" r="5" fill="#c0392b"/>
+                        <circle cx="420" cy="133" r="5" fill="#c0392b"/>
+                        <circle cx="550" cy="103" r="5" fill="#c0392b"/>
+                        <circle cx="680" cy="80" r="5" fill="#c0392b"/>
+
+                        <text x="110" y="352" font-size="12" fill="#2f3c4a">Causa A</text>
+                        <text x="242" y="352" font-size="12" fill="#2f3c4a">Causa B</text>
+                        <text x="372" y="352" font-size="12" fill="#2f3c4a">Causa C</text>
+                        <text x="502" y="352" font-size="12" fill="#2f3c4a">Causa D</text>
+                        <text x="632" y="352" font-size="12" fill="#2f3c4a">Causa E</text>
+
+                        <text x="20" y="335" font-size="12" fill="#7a8795">Frecuencia</text>
+                        <text x="922" y="80" font-size="12" fill="#7a8795">% Acumulado</text>
+
+                        <line x1="160" y1="238" x2="235" y2="215" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5 4"/>
+                        <text x="240" y="214" font-size="12" fill="#c0392b">Curva acumulada</text>
+
+                        <line x1="520" y1="42" x2="520" y2="330" stroke="#e67e22" stroke-width="2" stroke-dasharray="7 5"/>
+                        <text x="532" y="56" font-size="12" fill="#e67e22">Zona de corte de prioridad</text>
+
+                        <line x1="145" y1="105" x2="238" y2="86" stroke="#1f4e79" stroke-width="1.5" stroke-dasharray="5 4"/>
+                        <text x="242" y="87" font-size="12" fill="#1f4e79">Barras en orden descendente</text>
+                    </svg>
+                </div>
+                <p class="hint">Lectura: las barras muestran frecuencia por causa y la curva indica cuánto del problema total ya está explicado al acumular causas.</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-triangle-exclamation"></i> Diagnóstico inicial</span>
+                <h1>Problema detectado en Ferrisoluciones</h1>
+                <p class="lead">Los clientes han estado presentando reclamos reiterados por no disponibilidad o retraso en la entrega de productos. En mi opinión, el síntoma más crítico es la pérdida de confianza en compras urgentes de obra menor.</p>
+                <div class="highlight"><i class="fas fa-bullhorn"></i> Alerta operativa: 85 reclamos registrados en el último mes, concentrados en 6 motivos principales.</div>
+                <div class="steps" style="margin-top:1rem;">
+                    <div class="step"><strong><i class="fas fa-circle-exclamation"></i> Stock:</strong> 30 reclamos por falta de existencias.</div>
+                    <div class="step"><strong><i class="fas fa-truck-fast"></i> Despacho:</strong> 22 reclamos por demora de entrega.</div>
+                    <div class="step"><strong><i class="fas fa-file-invoice"></i> Facturación:</strong> 12 reclamos por errores de cobro o detalle.</div>
+                    <div class="step"><strong><i class="fas fa-headset"></i> Atención:</strong> 10 reclamos por respuesta tardía.</div>
+                    <div class="step"><strong><i class="fas fa-box-open"></i> Defectos:</strong> 6 reclamos por producto en mal estado.</div>
+                    <div class="step"><strong><i class="fas fa-ellipsis"></i> Varios:</strong> 5 reclamos por causas menores diversas.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-list-check"></i> Medición del impacto</span>
+                <h1>¿Cómo determinamos ese impacto?</h1>
+                <p class="lead">He llegado a la conclusión de que, para priorizar correctamente, primero debemos convertir los reclamos en datos comparables y luego calcular su peso relativo sobre el total.</p>
+                <div class="steps">
+                    <div class="step"><strong>1.</strong> Consolidamos 85 reclamos del mes en una sola base.</div>
+                    <div class="step"><strong>2.</strong> Agrupamos por motivo: stock, despacho, facturación, atención, defectos y varios.</div>
+                    <div class="step"><strong>3.</strong> Ordenamos de mayor a menor frecuencia (30, 22, 12, 10, 6, 5).</div>
+                    <div class="step"><strong>4.</strong> Calculamos porcentaje por causa sobre el total.</div>
+                    <div class="step"><strong>5.</strong> Calculamos porcentaje acumulado para ver concentración del problema.</div>
+                    <div class="step"><strong>6.</strong> Definimos causas críticas hasta superar el 80% acumulado.</div>
+                    <div class="step"><strong>7.</strong> Priorizamos acciones inmediatas en stock y despacho.</div>
+                    <div class="step"><strong>8.</strong> Dejamos facturación y atención en segunda fase de mejora.</div>
+                </div>
+                <p class="hint">Criterio técnico: cuando dos o tres causas concentran la mayor parte del daño, se convierten en foco del plan de acción.</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-chart-pie"></i> Ejemplo gráfico</span>
+                <h1>Pareto de reclamos en Ferrisoluciones</h1>
+                <div class="chart-wrap">
+                    <svg viewBox="0 0 980 400" style="width:100%;height:auto;">
+                        <line x1="70" y1="340" x2="920" y2="340" stroke="#c9d3de" stroke-width="2"/>
+                        <line x1="70" y1="60" x2="70" y2="340" stroke="#c9d3de" stroke-width="2"/>
+                        <line x1="920" y1="60" x2="920" y2="340" stroke="#c9d3de" stroke-width="2"/>
+
+                        <rect x="100" y="95" width="85" height="245" fill="#2f6ea5"/>
+                        <rect x="230" y="160" width="85" height="180" fill="#3b7db4"/>
+                        <rect x="360" y="242" width="85" height="98" fill="#4f8fc4"/>
+                        <rect x="490" y="258" width="85" height="82" fill="#67a1d1"/>
+                        <rect x="620" y="291" width="85" height="49" fill="#7bb2dc"/>
+                        <rect x="750" y="299" width="85" height="41" fill="#91c2e6"/>
+
+                        <text x="128" y="87" font-size="16" fill="#1f4e79">30</text>
+                        <text x="258" y="152" font-size="16" fill="#1f4e79">22</text>
+                        <text x="388" y="234" font-size="16" fill="#1f4e79">12</text>
+                        <text x="518" y="250" font-size="16" fill="#1f4e79">10</text>
+                        <text x="648" y="283" font-size="16" fill="#1f4e79">6</text>
+                        <text x="778" y="291" font-size="16" fill="#1f4e79">5</text>
+
+                        <polyline points="142,241 272,169 402,129 532,96 662,77 792,60" fill="none" stroke="#c0392b" stroke-width="4"/>
+                        <circle cx="142" cy="241" r="5" fill="#c0392b"/>
+                        <circle cx="272" cy="169" r="5" fill="#c0392b"/>
+                        <circle cx="402" cy="129" r="5" fill="#c0392b"/>
+                        <circle cx="532" cy="96" r="5" fill="#c0392b"/>
+                        <circle cx="662" cy="77" r="5" fill="#c0392b"/>
+                        <circle cx="792" cy="60" r="5" fill="#c0392b"/>
+
+                        <text x="112" y="365" font-size="13" fill="#2f3c4a">Stock</text>
+                        <text x="225" y="365" font-size="13" fill="#2f3c4a">Despacho</text>
+                        <text x="355" y="365" font-size="13" fill="#2f3c4a">Facturación</text>
+                        <text x="500" y="365" font-size="13" fill="#2f3c4a">Atención</text>
+                        <text x="620" y="365" font-size="13" fill="#2f3c4a">Defectos</text>
+                        <text x="773" y="365" font-size="13" fill="#2f3c4a">Varios</text>
+
+                        <text x="30" y="342" font-size="12" fill="#7a8795">0</text>
+                        <text x="25" y="285" font-size="12" fill="#7a8795">10</text>
+                        <text x="25" y="228" font-size="12" fill="#7a8795">20</text>
+                        <text x="25" y="171" font-size="12" fill="#7a8795">30</text>
+                        <text x="25" y="114" font-size="12" fill="#7a8795">40</text>
+
+                        <text x="940" y="342" font-size="12" fill="#7a8795">0%</text>
+                        <text x="935" y="286" font-size="12" fill="#7a8795">20%</text>
+                        <text x="935" y="230" font-size="12" fill="#7a8795">40%</text>
+                        <text x="935" y="174" font-size="12" fill="#7a8795">60%</text>
+                        <text x="935" y="118" font-size="12" fill="#7a8795">80%</text>
+                        <text x="930" y="62" font-size="12" fill="#7a8795">100%</text>
+
+                        <text x="360" y="390" font-size="13" fill="#475569" font-weight="600">Causas de no disponibilidad</text>
+                        <text transform="rotate(-90 16 255)" x="16" y="255" font-size="12" fill="#475569" font-weight="600">Frecuencia absoluta</text>
+                        <text transform="rotate(-90 968 255)" x="968" y="255" font-size="12" fill="#475569" font-weight="600">% Frecuencia acumulada</text>
+                    </svg>
+                </div>
+                <p class="hint">Interpretación: la curva acumulada sube de izquierda a derecha (35%, 61%, 75%, 87%, 94%, 100%), manteniendo los motivos operativos del caso.</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-screwdriver-wrench"></i> Plan de acción</span>
+                <h1>Acciones recomendadas e impacto esperado</h1>
+                <div class="two-cases">
+                    <div class="case">
+                        <h3>Acciones recomendadas</h3>
+                        <ul>
+                            <li>Implementar reposición semanal por rotación ABC de inventario.</li>
+                            <li>Definir tiempos estándar de despacho por tipo de pedido.</li>
+                            <li>Aplicar doble validación rápida antes de emitir factura.</li>
+                            <li>Habilitar canal único de reclamos con respuesta en 24 horas.</li>
+                        </ul>
+                    </div>
+                    <div class="case">
+                        <h3>Impacto esperado (60 días)</h3>
+                        <ul>
+                            <li>Reducir en 40% los reclamos por stock.</li>
+                            <li>Reducir en 35% los reclamos por demora de despacho.</li>
+                            <li>Reducir en 30% los reclamos por facturación.</li>
+                            <li>Mejorar satisfacción del cliente y recompra mensual.</li>
+                        </ul>
+                        <span class="tag">Meta: intervenir en las causas que concentran la mayor parte del problema</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-chart-line"></i> Seguimiento</span>
+                <h1>Control de resultados en Ferrisoluciones</h1>
+                <div class="two-cases">
+                    <div class="case">
+                        <h3>Indicadores a monitorear</h3>
+                        <ul>
+                            <li>Número total de reclamos por semana.</li>
+                            <li>% de reclamos por stock y por despacho.</li>
+                            <li>Tiempo promedio de despacho por pedido.</li>
+                            <li>Tasa de error en facturación por 100 ventas.</li>
+                            <li>Nivel de satisfacción post-venta.</li>
+                        </ul>
+                    </div>
+                    <div class="case">
+                        <h3>Cierre de mejora continua</h3>
+                        <ul>
+                            <li>Comparar resultados cada 30 días contra línea base (85 reclamos).</li>
+                            <li>Rehacer Pareto mensualmente para ajustar prioridades.</li>
+                            <li>Escalar recursos solo en causas que se mantengan críticas.</li>
+                            <li>Estandarizar buenas prácticas en inventario y despacho.</li>
+                        </ul>
+                        <span class="tag">Objetivo: sostener la reducción de reclamos y fortalecer fidelización</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-scale-balanced"></i> Evaluación</span>
+                <h1>Ventajas y limitaciones del Pareto</h1>
+                <div class="limits">
+                    <div class="adv">
+                        <h3><i class="fas fa-circle-check"></i> Ventajas</h3>
+                        <ul>
+                            <li>Es visual y fácil de interpretar por cualquier equipo.</li>
+                            <li>Permite priorizar acciones con base objetiva.</li>
+                            <li>Reduce desperdicio de tiempo y recursos.</li>
+                            <li>Ayuda a comunicar decisiones con evidencia.</li>
+                        </ul>
+                    </div>
+                    <div class="lim">
+                        <h3><i class="fas fa-triangle-exclamation"></i> Limitaciones</h3>
+                        <ul>
+                            <li>No identifica por sí solo la causa raíz profunda.</li>
+                            <li>Depende de que los datos estén bien registrados.</li>
+                            <li>Debe actualizarse periódicamente para seguir vigente.</li>
+                            <li>Conviene combinarlo con Ishikawa y sus porqués.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-gears"></i> Integración</span>
+                <h1>Pareto dentro del sistema de calidad</h1>
+                <div class="cols">
+                    <div class="card">
+                        <h3>Pareto + Ishikawa</h3>
+                        <p class="lead" style="font-size:1rem;">Primero priorizamos con Pareto y luego investigamos la raíz con Ishikawa.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Pareto + PHVA</h3>
+                        <p class="lead" style="font-size:1rem;">Planificar acciones en causas críticas, ejecutar, verificar resultados y estandarizar.</p>
+                    </div>
+                </div>
+                <div class="highlight" style="margin-top:1.2rem;"><i class="fas fa-flag-checkered"></i> Resultado: decisiones más rápidas, mejoras sostenibles y mayor control del desempeño.</div>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div class="panel">
+                <span class="kicker"><i class="fas fa-check-double"></i> Conclusiones</span>
+                <h1>Reflexión final</h1>
+                <div class="conclusion">
+                    <div class="quote">"He llegado a la conclusión de que el Diagrama de Pareto no solo ordena datos, sino que ordena decisiones. En mi opinión, cuando priorizamos las causas críticas primero, mejoramos más rápido, con menor costo y con mayor impacto para socios y clientes."</div>
+                    <div class="author">
+                        <h3 style="margin-bottom:0.6rem;color:var(--accent);">Luis Pinta</h3>
+                        <p style="text-align:center;line-height:1.7;">Gestión de la Calidad<br>Cantón Mejía, Machachi</p>
+                    </div>
+                </div>
+                <div class="final-actions">
+                    <a class="action-btn" href="../../../index.html?materia=GESTI%C3%93N%20DE%20LA%20CALIDAD"><i class="fas fa-layer-group"></i> Ver más tareas de la materia</a>
+                    <a class="action-btn hidden" id="pdfBtn" href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Ver PDF de la tarea</a>
+                </div>
+                <p class="hint" style="margin-top:1.2rem;">Gracias por su atención. ¿Tienen alguna pregunta?</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="controls">
+        <button class="btn" onclick="prevSlide()" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <button class="btn" onclick="nextSlide()" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        const progress = document.getElementById('progress');
+        const interventionOverlay = document.getElementById('interventionOverlay');
+        const interventionText = document.getElementById('interventionText');
+        const pdfBtn = document.getElementById('pdfBtn');
+
+        let isInterventionActive = false;
+
+        const interventionPhrases = [
+            "En mi opinión, Pareto nos enseña que mejorar calidad también es saber priorizar con criterio.",
+            "A día de hoy, no gana quien hace más, sino quien mejora lo más crítico primero.",
+            "He llegado a la conclusión de que los datos bien analizados reducen el error gerencial.",
+            "En Ferrisoluciones, priorizar causas clave fortalece la confianza de los clientes.",
+            "En Ferrisoluciones, atacar primero stock y despacho tiene impacto inmediato en satisfacción."
+        ];
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev');
+                if (index === current) slide.classList.add('active');
+                else if (index < current) slide.classList.add('prev');
+            });
+            const progressValue = ((current + 1) / slides.length) * 100;
+            progress.style.width = progressValue + '%';
+        }
+
+        function nextSlide() {
+            if (isInterventionActive) return;
+            if (current < slides.length - 1) {
+                current++;
+                updateSlides();
+            }
+        }
+
+        function prevSlide() {
+            if (isInterventionActive) return;
+            if (current > 0) {
+                current--;
+                updateSlides();
+            }
+        }
+
+        function toggleIntervention() {
+            isInterventionActive = !isInterventionActive;
+            if (isInterventionActive) {
+                const randomPhrase = interventionPhrases[Math.floor(Math.random() * interventionPhrases.length)];
+                interventionText.textContent = `"${randomPhrase.replace(/^"|"$/g, '')}"`;
+                interventionOverlay.classList.add('active');
+            } else {
+                interventionOverlay.classList.remove('active');
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener('fullscreenchange', () => {
+            if (document.fullscreenElement) document.body.classList.add('fullscreen-mode');
+            else document.body.classList.remove('fullscreen-mode');
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                toggleIntervention();
+                return;
+            }
+
+            if (isInterventionActive) return;
+
+            if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(e.key)) {
+                e.preventDefault();
+                nextSlide();
+                return;
+            }
+
+            if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) {
+                e.preventDefault();
+                prevSlide();
+                return;
+            }
+
+            if (e.key.toLowerCase() === 'f') {
+                e.preventDefault();
+                toggleFullscreen();
+            }
+        });
+
+        async function configurePdfButton() {
+            const possiblePdfPaths = [
+                '../Pdfs/DIAGRAMA_PARETO.html',
+                '../Pdfs/DIAGRAMA_DE_PARETO.html',
+                '../Pdfs/PARETO.html'
+            ];
+
+            for (const path of possiblePdfPaths) {
+                try {
+                    const response = await fetch(path, { method: 'HEAD' });
+                    if (response.ok) {
+                        pdfBtn.href = path;
+                        pdfBtn.classList.remove('hidden');
+                        return;
+                    }
+                } catch (_) {
+                }
+            }
+        }
+
+        updateSlides();
+        configurePdfButton();
+    </script>
+</body>
+</html>
