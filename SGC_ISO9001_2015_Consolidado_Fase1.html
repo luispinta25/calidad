@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consolidado SGC ISO 9001:2015 - Pastelitos S.A.</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 2cm 2cm 2cm 2.54cm;
+        }
+
+        @page :first {
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 13pt;
+            line-height: 1.5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        .caratula {
+            text-align: center;
+            height: auto;
+            display: block;
+            page-break-after: always;
+            margin: 0;
+            padding: 0;
+            background-image: url('../Portada.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .caratula-overlay {
+            min-height: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 0.8cm 1.5cm 0.8cm 1.5cm;
+        }
+
+        .portada-cabecera {
+            padding-top: 0.3cm;
+        }
+
+        .portada-cabecera h1 {
+            margin-top: 0;
+            margin-bottom: 0.2cm;
+            font-size: 14pt;
+        }
+
+        .portada-logo {
+            margin: 0.2cm auto;
+            max-width: 100px;
+            height: auto;
+        }
+
+        .portada-centro {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .portada-administracion h2 {
+            font-size: 16pt;
+            margin: 0.3cm 0;
+        }
+
+        .portada-logo-empresa {
+            margin: 0.4cm 0;
+            text-align: center;
+        }
+
+        .portada-empresa h2 {
+            font-size: 16pt;
+            margin: 0.3cm 0;
+            font-weight: bold;
+        }
+
+        .portada-integrantes p {
+            margin: 0.5cm 0;
+            font-size: 11pt;
+        }
+
+        .portada-nivel p {
+            margin: 0.3cm 0;
+            font-size: 11pt;
+        }
+
+        .portada-carrera p {
+            margin: 0.3cm 0;
+            font-size: 11pt;
+        }
+
+        .portada-area p {
+            margin: 0.3cm 0;
+            font-size: 11pt;
+        }
+
+        .portada-docente p {
+            margin: 0.3cm 0;
+            font-size: 11pt;
+        }
+
+        .portada-fecha p {
+            margin: 0.5cm 0;
+            font-size: 11pt;
+        }
+
+        .caratula-overlay p,
+        .caratula-overlay h1,
+        .caratula-overlay h2,
+        .caratula-overlay h3 {
+            text-align: center;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+            margin: 0.2cm 0;
+        }
+
+        .caratula-overlay h2 {
+            font-size: 14pt;
+            margin-bottom: 0.2cm;
+        }
+
+        .caratula-overlay h3 {
+            font-size: 12pt;
+            margin-bottom: 0.2cm;
+        }
+
+        .contenido {
+            page-break-inside: auto;
+        }
+
+        .footer-caratula {
+            text-align: center;
+            padding-bottom: 0.3cm;
+        }
+
+        .footer-caratula p {
+            margin: 0.1cm 0;
+        }
+
+        .logo {
+            margin: 1cm auto;
+            max-width: 180px;
+        }
+
+        .titulo-principal {
+            margin: 1cm 0;
+        }
+
+        .datos-estudiante {
+            margin: 1cm 0;
+            line-height: 2;
+        }
+
+        .datos-estudiante p {
+            text-align: center;
+            margin: 0.5cm 0;
+        }
+
+        h1, h2, h3, h4, h5 {
+            color: #16275e;
+            font-weight: bold;
+            page-break-after: avoid;
+        }
+
+        h1 {
+            font-size: 19pt;
+            margin-bottom: 1cm;
+        }
+
+        h2 {
+            font-size: 17pt;
+            margin-top: 1.5cm;
+            margin-bottom: 0.8cm;
+        }
+
+        h3 {
+            font-size: 15pt;
+            margin-top: 1cm;
+            margin-bottom: 0.5cm;
+        }
+
+        h4 {
+            font-size: 14pt;
+            margin-top: 0.8cm;
+            margin-bottom: 0.4cm;
+        }
+
+        h5 {
+            font-size: 13pt;
+            margin-top: 0.8cm;
+            margin-bottom: 0.3cm;
+        }
+
+        p {
+            text-align: justify;
+            margin-top: 0;
+            margin-bottom: 0.5cm;
+            orphans: 3;
+            widows: 3;
+        }
+
+        ul, ol {
+            margin-bottom: 0.5cm;
+            padding-left: 1.5cm;
+        }
+
+        li {
+            color: #9a7c00;
+            margin-bottom: 0.4cm;
+            padding-left: 0.5cm;
+            text-align: justify;
+        }
+
+        li span {
+            color: #333;
+        }
+
+        .strong {
+            font-weight: bold;
+        }
+
+        .contenedor-imagen {
+            page-break-inside: avoid;
+            text-align: center;
+            border: 2px solid #16275e;
+            padding: 8px;
+            position: relative;
+            border-radius: 12px;
+            display: inline-block;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin: 1cm auto;
+            max-width: 60%;
+        }
+
+        .contenedor-imagen::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 60px;
+            height: 60px;
+            border-top: 2px solid #9a7c00;
+            border-left: 2px solid #9a7c00;
+            border-top-left-radius: 12px;
+        }
+
+        .imagen-deber {
+            max-width: 100%;
+            height: auto;
+            max-height: 22cm;
+            display: block;
+            border-radius: 6px;
+        }
+
+        .pie-de-foto {
+            font-size: 11pt;
+            font-style: italic;
+            color: #555;
+            margin-top: 0.8cm;
+            margin-bottom: 0;
+        }
+
+        .tabla-moderna {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+            margin: 0.5cm 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+            page-break-inside: auto;
+        }
+
+        .tabla-moderna th {
+            background: #16275e;
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+        }
+
+        .tabla-moderna td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #eee;
+            border-left: 1px solid #eee;
+            text-align: justify;
+            vertical-align: top;
+        }
+
+        .tabla-moderna td:first-child {
+            border-left: none;
+        }
+
+        .tabla-moderna tr:last-child td {
+            border-bottom: none;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+
+        .tabla-moderna tr:hover {
+            background: #f8f9fa;
+        }
+
+        .mermaid {
+            margin: 0.8cm 0;
+            page-break-inside: avoid;
+        }
+
+        .referencias {
+            margin-top: 2cm;
+        }
+
+        .referencias h2 {
+            border-bottom: 1px solid #16275e;
+            padding-bottom: 0.3cm;
+        }
+
+        .referencias p {
+            padding-left: 1.5cm;
+            text-indent: -1.5cm;
+            margin-bottom: 0.5cm;
+        }
+
+        .botones-flotantes {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 9999;
+        }
+
+        .btn-flotante {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: #16275e;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            font-size: 20px;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn-flotante:hover {
+            background: #9a7c00;
+            transform: scale(1.1);
+        }
+
+        @media print {
+            .botones-flotantes {
+                display: none !important;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        window.onload = function() {
+            if (window.mermaid) {
+                mermaid.initialize({
+                    startOnLoad: true,
+                    securityLevel: 'loose'
+                });
+            }
+            // window.print(); // Comentado para permitir navegación fluida
+        }
+    </script>
+</head>
+<body>
+    <div class="botones-flotantes">
+        <a href="../../../index.html" class="btn-flotante" title="Regresar al inicio">
+            <i class="fas fa-home"></i>
+        </a>
+        <button onclick="window.print()" class="btn-flotante" title="Imprimir">
+            <i class="fas fa-print"></i>
+        </button>
+    </div>
+
+    <div class="caratula">
+        <div class="caratula-overlay">
+            <div class="portada-cabecera">
+                <h1>INSTITUTO SUPERIOR TECNOLÓGICO MEJÍA</h1>
+            </div>
+            <div class="portada-logo-empresa">
+                <img src="../logo.jpg" alt="Logo Pastelitos" class="portada-logo">
+            </div>
+            <div class="portada-empresa">
+                <h2>PASTELITOS S.A.</h2>
+            </div>
+            <div class="portada-centro">
+                <div class="portada-integrantes">
+                    <p>Natalia Nishve, Luis Pinta, Dayana Puentestar y Belén Chiguano</p>
+                </div>
+                <div class="portada-nivel">
+                    <p><strong>Nivel:</strong> Tercero y Cuarto</p>
+                </div>
+                <div class="portada-carrera">
+                    <p><strong>Carrera:</strong> Administración</p>
+                </div>
+                <div class="portada-area">
+                    <p><strong>Área:</strong> Gestión de Calidad</p>
+                </div>
+                <div class="portada-docente">
+                    <p><strong>Docente:</strong> Ing. Fernanda Cepeda</p>
+                </div>
+                <div class="portada-fecha">
+                    <p><strong>Fecha:</strong> Aloasí, 10/04/2026</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenido">
+        <h2>Índice General Consolidado</h2>
+        <ul>
+            <li><span>0. Información general del proyecto</span></li>
+            <li><span>4. Contexto de la organización</span></li>
+            <li><span>5. Liderazgo</span></li>
+            <li><span>6. Planificación</span></li>
+            <li><span>7. Apoyo</span></li>
+            <li><span>8. Operación</span></li>
+            <li><span>9. Evaluación del desempeño</span></li>
+            <li><span>10. Mejora</span></li>
+            <li><span>Anexos organizacionales y control documental</span></li>
+        </ul>
+
+        <h2>0. Información General del Proyecto</h2>
+        <ul>
+            <li><span><strong>Organización:</strong> Pastelitos S.A.</span></li>
+            <li><span><strong>Ubicación:</strong> Machachi – Ecuador</span></li>
+            <li><span><strong>Norma de referencia:</strong> ISO 9001:2015</span></li>
+            <li><span><strong>Estado del sistema:</strong> Fase inicial / primer acercamiento</span></li>
+        </ul>
+
+        <h2>4. Contexto de la Organización</h2>
+        <h3>4.1 Comprensión de la organización y su contexto</h3>
+        <p>Pastelitos S.A. es una pastelería especializada en pastel de zanahoria, ubicada en Machachi – Centro. La empresa nace con el propósito de demostrar que recetas caseras, naturales y saludables pueden posicionarse a nivel local y, a largo plazo, expandirse mediante sucursales.</p>
+        <p>Se proyecta un crecimiento estable y sostenible, priorizando calidad constante, reputación sólida, innovación y rentabilidad responsable, junto con impacto positivo en la comunidad local.</p>
+
+        <h4>4.1.1 Factores internos</h4>
+        <ul>
+            <li><span>Estructura organizacional definida.</span></li>
+            <li><span>Especialización en un producto estrella.</span></li>
+            <li><span>Cultura organizacional basada en responsabilidad y compromiso.</span></li>
+            <li><span>Enfoque artesanal y natural.</span></li>
+        </ul>
+
+        <h4>4.1.2 Factores externos</h4>
+        <ul>
+            <li><span>Competencia en precio por parte de panaderías tradicionales.</span></li>
+            <li><span>Tendencia creciente hacia productos naturales y artesanales.</span></li>
+            <li><span>Posibilidad de expansión mediante canales digitales.</span></li>
+            <li><span>Variaciones económicas e inflación en insumos.</span></li>
+        </ul>
+
+        <h3>4.2 Comprensión de las necesidades y expectativas de las partes interesadas</h3>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Parte Interesada</th>
+                    <th>Necesidad / Expectativa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Clientes</td><td>Calidad constante, higiene, puntualidad.</td></tr>
+                <tr><td>Proveedores</td><td>Relaciones comerciales estables.</td></tr>
+                <tr><td>Comunidad local</td><td>Generación de empleo y apoyo a productores.</td></tr>
+                <tr><td>Autoridades (ARCSA - Agencia Nacional de Regulación, Control y Vigilancia Sanitaria, SRI)</td><td>Cumplimiento normativo.</td></tr>
+                <tr><td>Colaboradores</td><td>Ambiente organizado y profesional.</td></tr>
+                <tr><td>Socios / Directivos</td><td>Rentabilidad sostenible.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>4.3 Determinación del alcance del SGC</h3>
+        <p>Pastelitos S.A. se posiciona como pastelería artesanal premium, marca accesible con valor agregado y empresa enfocada en calidad constante y reputación.</p>
+        <p>El crecimiento proyectado es estable y sostenible. Se contempla endeudamiento futuro únicamente si existe planificación financiera sólida que garantice estabilidad.</p>
+
+        <h4>4.3.1 Misión</h4>
+        <p>Ofrecer pastel de zanahoria artesanal de alta calidad, elaborado con ingredientes naturales, garantizando sabor constante, responsabilidad organizacional e impacto positivo en la comunidad local.</p>
+
+        <h4>4.3.2 Visión</h4>
+        <p>Ser la pastelería referente en Machachi y expandirnos mediante sucursales, demostrando que recetas caseras y saludables pueden posicionarse a nivel regional y nacional.</p>
+
+        <h4>4.3.3 Valores organizacionales</h4>
+        <ul>
+            <li><span>Responsabilidad.</span></li>
+            <li><span>Compromiso.</span></li>
+            <li><span>Integridad.</span></li>
+            <li><span>Calidad.</span></li>
+        </ul>
+
+        <h3>4.4 Sistema de gestión de la calidad y sus procesos</h3>
+        <h4>4.4.1 Flujo funcional</h4>
+        <div class="mermaid">
+flowchart LR
+    P[Proveedores] --> C[Compras]
+    C --> PR[Producción]
+    PR --> M[Comercial]
+    M --> CL[Cliente]
+    Q[Calidad] -. Control transversal .-> PR
+    G[Gerencia General] -. Supervisión estratégica .-> C
+    G -. Supervisión estratégica .-> PR
+    G -. Supervisión estratégica .-> M
+    F[Financiero] -. Control financiero .-> C
+    F -. Control financiero .-> M
+        </div>
+
+        <h4>4.4.2 Mapa general de procesos</h4>
+        <h5>A) Procesos estratégicos</h5>
+        <ul>
+            <li><span>Dirección y planificación (Gerencia).</span></li>
+            <li><span>Definición de objetivos.</span></li>
+            <li><span>Revisión del desempeño.</span></li>
+            <li><span>Gestión de Talento Humano.</span></li>
+        </ul>
+
+        <h5>B) Procesos misionales (clave)</h5>
+        <ul>
+            <li><span>Gestión de compras.</span></li>
+            <li><span>Producción y Operaciones (Elaboración del pastel).</span></li>
+            <li><span>Comercialización y Marketing.</span></li>
+            <li><span>Atención al cliente.</span></li>
+        </ul>
+
+        <h5>C) Procesos de apoyo</h5>
+        <ul>
+            <li><span>Gestión financiera.</span></li>
+            <li><span>Evaluación y selección de proveedores.</span></li>
+            <li><span>Gestión de Calidad y Procesos.</span></li>
+            <li><span>Control documental.</span></li>
+        </ul>
+
+        <h5>D) Procesos de evaluación y mejora</h5>
+        <ul>
+            <li><span>Medición de satisfacción del cliente.</span></li>
+            <li><span>Revisión de indicadores departamentales.</span></li>
+            <li><span>Gestión de riesgos operativos.</span></li>
+            <li><span>Acciones de mejora continua.</span></li>
+        </ul>
+
+        <h2>5. Liderazgo</h2>
+        <h3>5.1 Liderazgo y compromiso</h3>
+        <p>La Gerencia General establece la dirección estratégica del SGC, coordina a los jefes departamentales y define revisiones trimestrales para sostener la calidad, reputación y rentabilidad responsable.</p>
+
+        <h3>5.2 Política de calidad e inocuidad</h3>
+        <p>En Pastelitos S.A. la calidad del producto es prioritaria sobre cualquier objetivo de volumen o rapidez.</p>
+        <ul>
+            <li><span>Garantizar calidad constante en los productos.</span></li>
+            <li><span>Cumplir requisitos legales y normativos aplicables.</span></li>
+            <li><span>Mantener relaciones responsables con proveedores.</span></li>
+            <li><span>Fomentar la mejora continua del sistema organizacional.</span></li>
+            <li><span>Proteger la reputación y confianza de los clientes.</span></li>
+            <li><span>Ningún producto será comercializado si no cumple estándares mínimos.</span></li>
+            <li><span>Se priorizará materia prima fresca.</span></li>
+            <li><span>Se mantendrá limpieza estricta del área productiva.</span></li>
+        </ul>
+
+        <h3>5.2.1 Política de gestión financiera responsable</h3>
+        <ul>
+            <li><span>No se asumirá endeudamiento sin análisis previo.</span></li>
+            <li><span>Se mantendrá control de costos.</span></li>
+            <li><span>Se realizará revisión financiera trimestral.</span></li>
+            <li><span>Se priorizará estabilidad antes que crecimiento acelerado.</span></li>
+        </ul>
+
+        <h3>5.3 Roles, responsabilidades y autoridades</h3>
+        <h4>5.3.1 Tipo de estructura</h4>
+        <ul>
+            <li><span>Estructura funcional.</span></li>
+            <li><span>Modelo organizacional colaborativo.</span></li>
+            <li><span>Dirección estratégica centralizada con decisiones colegiadas.</span></li>
+        </ul>
+
+        <h4>5.3.2 Principio de autoridad</h4>
+        <p>Aunque la Gerencia General coordina estratégicamente, las decisiones operativas se toman en conjunto entre los responsables de cada departamento.</p>
+
+        <h4>Organigrama estructural</h4>
+        <div class="mermaid">
+flowchart TD
+    GG[Gerencia General<br/>Luis Pinta]
+    GG --> TH[Talento Humano<br/>Ana Llumipanta]
+    GG --> FIN[Departamento Financiero<br/>Belén Chiguano]
+    GG --> COM[Departamento de Compras<br/>Natalia Nishve]
+    GG --> PROD[Producción y Operaciones<br/>Estefanía Benavides]
+    GG --> MKT[Comercial y Marketing<br/>Jéssica Coro]
+    GG --> CAL[Calidad y Procesos<br/>Dayana Puentestar]
+        </div>
+
+        <h4>Perfiles de Cargo</h4>
+        <p><strong>Definición:</strong> Los perfiles de cargo son documentos formales que definen las características, responsabilidades, requisitos y competencias necesarias para desempeñar un puesto específico dentro de la organización. Estos perfiles ayudan a orientar la selección de personal, definir funciones y responsabilidades claras, establecer expectativas, facilitar la evaluación del desempeño y alinearse con los requisitos ISO 9001:2015.</p>
+        
+        <h5>Resumen de Perfiles de Cargo</h5>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Cargo</th>
+                    <th>Responsable</th>
+                    <th>Objetivo</th>
+                    <th>Reporta a</th>
+                    <th>Relación con pares</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gerente General</td>
+                    <td>Luis Pinta</td>
+                    <td>Dirigir estratégicamente la empresa y asegurar cumplimiento del SGC.</td>
+                    <td>Socios fundadores</td>
+                    <td>No aplica (máxima autoridad administrativa).</td>
+                </tr>
+                <tr>
+                    <td>Jefe Financiero</td>
+                    <td>Belén Chiguano</td>
+                    <td>Garantizar estabilidad financiera y control de costos.</td>
+                    <td>Gerente General</td>
+                    <td>Compras, Producción, Calidad, Talento Humano y Comercial.</td>
+                </tr>
+                <tr>
+                    <td>Jefe de Compras y Proveedores</td>
+                    <td>Natalia Nishve</td>
+                    <td>Asegurar abastecimiento oportuno y calidad de insumos.</td>
+                    <td>Gerente General</td>
+                    <td>Finanzas, Producción, Calidad y Comercial.</td>
+                </tr>
+                <tr>
+                    <td>Jefe Comercial y Marketing</td>
+                    <td>Jéssica Coro</td>
+                    <td>Posicionamiento de marca, ventas y fidelización.</td>
+                    <td>Gerente General</td>
+                    <td>Producción, Finanzas, Compras y Calidad.</td>
+                </tr>
+                <tr>
+                    <td>Jefe de Calidad y Procesos</td>
+                    <td>Dayana Puentestar</td>
+                    <td>Garantizar cumplimiento de procesos y estándares internos.</td>
+                    <td>Gerente General</td>
+                    <td>Producción, Compras, Finanzas y Comercial.</td>
+                </tr>
+                <tr>
+                    <td>Jefe de Producción y Operaciones</td>
+                    <td>Estefanía Benavides</td>
+                    <td>Transformación de insumos y control operacional.</td>
+                    <td>Gerente General</td>
+                    <td>Calidad, Compras, Finanzas y Comercial.</td>
+                </tr>
+                <tr>
+                    <td>Jefe de Talento Humano</td>
+                    <td>Ana Llumipanta</td>
+                    <td>Gestión del personal y clima organizacional.</td>
+                    <td>Gerente General</td>
+                    <td>Todos los departamentos.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+        <h5>Perfiles Específicos por Cargo</h5>
+        <h5>1) GERENTE GENERAL</h5>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Código de Puesto</strong></td>
+                    <td>GG-001</td>
+                </tr>
+                <tr>
+                    <td><strong>Denominación</strong></td>
+                    <td>Gerente General</td>
+                </tr>
+                <tr>
+                    <td><strong>Área/Departamento</strong></td>
+                    <td>Dirección General</td>
+                </tr>
+                <tr>
+                    <td><strong>Nivel Jerárquico</strong></td>
+                    <td>Máxima autoridad administrativa</td>
+                </tr>
+                <tr>
+                    <td><strong>Propósito del Puesto</strong></td>
+                    <td>Dirigir estratégicamente Pastelitos S.A., asegurando sostenibilidad, coordinación departamental, cumplimiento del SGC ISO 9001:2015 y maximización de valor organizacional.</td>
+                </tr>
+                <tr>
+                    <td><strong>Responsabilidades Principales</strong></td>
+                    <td>• Definir dirección estratégica y políticas organizacionales<br>• Aprobar presupuestos e inversiones estratégicas<br>• Garantizar cumplimiento del Sistema de Gestión de Calidad<br>• Coordinar revisiones trimestrales de desempeño<br>• Gestionar riesgos estratégicos y oportunidades<br>• Representar la organización ante stakeholders externos</td>
+                </tr>
+                <tr>
+                    <td><strong>Requisitos Educativos</strong></td>
+                    <td>• Educación: Licenciatura en Administración de Empresas, Ingeniería Industrial o carrera afín<br>• Certificaciones: Conocimiento deseable en ISO 9001:2015</td>
+                </tr>
+                <tr>
+                    <td><strong>Experiencia Requerida</strong></td>
+                    <td>• Mínimo 5 años de experiencia en gerencia<br>• Experiencia en empresas de alimentos/producción (deseable)<br>• Experiencia en implementación de sistemas de gestión (deseable)</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Técnicas</strong></td>
+                    <td>• Gestión estratégica empresarial<br>• Análisis financiero y presupuestario<br>• Conocimiento de procesos de producción<br>• Legislación comercial y laboral</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Conductuales</strong></td>
+                    <td>• Liderazgo visionario<br>• Toma de decisiones efectiva<br>• Comunicación asertiva<br>• Pensamiento estratégico<br>• Inteligencia emocional</td>
+                </tr>
+                <tr>
+                    <td><strong>Autoridad</strong></td>
+                    <td>• Aprobar inversiones y endeudamiento<br>• Validar e implementar políticas internas<br>• Suspender decisiones que afecten calidad o reputación<br>• Autorizar cambios en estructura organizacional</td>
+                </tr>
+                <tr>
+                    <td><strong>Relaciones Internas</strong></td>
+                    <td>Reporta a: Socios fundadores | Supervisa a: Todos los jefes departamentales</td>
+                </tr>
+                <tr>
+                    <td><strong>Indicadores de Desempeño</strong></td>
+                    <td>• Cumplimiento de objetivos estratégicos (meta: 100%)<br>• Rentabilidad general de la empresa<br>• Conformidad ISO 9001 auditable<br>• Índice de coordinación interdepartamental</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>2) JEFE FINANCIERO Y CONTABILIDAD DE COSTOS</h5>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Código de Puesto</strong></td>
+                    <td>FIN-001</td>
+                </tr>
+                <tr>
+                    <td><strong>Denominación</strong></td>
+                    <td>Jefe Financiero y Contabilidad de Costos</td>
+                </tr>
+                <tr>
+                    <td><strong>Área/Departamento</strong></td>
+                    <td>Finanzas y Administración</td>
+                </tr>
+                <tr>
+                    <td><strong>Propósito del Puesto</strong></td>
+                    <td>Garantizar la estabilidad financiera, control de costos, análisis económico y presupuestario de Pastelitos S.A., alineado con objetivos ISO 9001.</td>
+                </tr>
+                <tr>
+                    <td><strong>Responsabilidades Principales</strong></td>
+                    <td>• Elaborar estados financieros mensuales y balances trimestrales<br>• Analizar márgenes de utilidad y rentabilidad<br>• Controlar costos de producción y operativos<br>• Supervisar flujo de caja y tesorería<br>• Preparar presupuestos y proyecciones financieras<br>• Gestionar cumplimiento tributario y legal</td>
+                </tr>
+                <tr>
+                    <td><strong>Requisitos Educativos</strong></td>
+                    <td>• Educación: Contador Público, Técnico en Contabilidad o Licenciatura en Administración Financiera<br>• Certificaciones: Cursos en sistemas contables (deseable)</td>
+                </tr>
+                <tr>
+                    <td><strong>Experiencia Requerida</strong></td>
+                    <td>• Mínimo 3-4 años en contabilidad financiera<br>• Experiencia en empresas manufactureras (deseable)<br>• Experiencia en sistemas ERP (deseable)</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Técnicas</strong></td>
+                    <td>• Contabilidad financiera y de costos<br>• Análisis presupuestario<br>• Conocimiento tributario<br>• Manejo de software contable<br>• Análisis de indicadores financieros</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Conductuales</strong></td>
+                    <td>• Precisión y atención al detalle<br>• Organización y orden<br>• Ética profesional<br>• Comunicación clara de datos financieros<br>• Resolución de problemas</td>
+                </tr>
+                <tr>
+                    <td><strong>Autoridad</strong></td>
+                    <td>• Validar y autorizar pagos<br>• Solicitar ajustes presupuestarios al Gerente<br>• Proponer medidas de control de gastos<br>• Reportar desviaciones financieras</td>
+                </tr>
+                <tr>
+                    <td><strong>Relaciones Internas</strong></td>
+                    <td>Reporta a: Gerente General | Colabora con: Compras, Producción, Calidad, Comercial</td>
+                </tr>
+                <tr>
+                    <td><strong>Indicadores de Desempeño</strong></td>
+                    <td>• Margen neto mensual<br>• Variación de costos real vs. presupuestado<br>• Nivel de liquidez<br>• Cumplimiento de reportes a tiempo</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>3) JEFE DE COMPRAS Y PROVEEDORES</h5>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Código de Puesto</strong></td>
+                    <td>COM-001</td>
+                </tr>
+                <tr>
+                    <td><strong>Denominación</strong></td>
+                    <td>Jefe de Compras y Proveedores</td>
+                </tr>
+                <tr>
+                    <td><strong>Área/Departamento</strong></td>
+                    <td>Abastecimiento y Logística</td>
+                </tr>
+                <tr>
+                    <td><strong>Propósito del Puesto</strong></td>
+                    <td>Asegurar el abastecimiento oportuno y con calidad garantizada de insumos y materiales, gestionando proveedores según estándares ISO 9001 y matriz de evaluación.</td>
+                </tr>
+                <tr>
+                    <td><strong>Responsabilidades Principales</strong></td>
+                    <td>• Seleccionar, homologar y evaluar proveedores<br>• Aplicar matriz IDP (criterios: Inocuidad, Disponibilidad, Precio)<br>• Negociar términos comerciales y condiciones de pago<br>• Gestionar órdenes de compra y seguimiento de entregas<br>• Registrar y gestionar no conformidades de proveedores<br>• Realizar evaluaciones semestrales de desempeño</td>
+                </tr>
+                <tr>
+                    <td><strong>Requisitos Educativos</strong></td>
+                    <td>• Educación: Licenciatura en Administración, Logística o carrera afín<br>• Certificaciones: Conocimiento básico en calidad de alimentos (deseable)</td>
+                </tr>
+                <tr>
+                    <td><strong>Experiencia Requerida</strong></td>
+                    <td>• Mínimo 2-3 años en compras o abastecimiento<br>• Experiencia con proveedores alimentarios (deseable)<br>• Experiencia en negociación comercial</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Técnicas</strong></td>
+                    <td>• Negociación comercial<br>• Evaluación técnica de proveedores<br>• Conocimiento de criterios de calidad en alimentos<br>• Gestión de documentación e indicadores<br>• Manejo de plataformas de compra</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Conductuales</strong></td>
+                    <td>• Negociación efectiva<br>• Capacidad analítica<br>• Organización documental<br>• Comunicación clara<br>• Orientación a resultados</td>
+                </tr>
+                <tr>
+                    <td><strong>Autoridad</strong></td>
+                    <td>• Suspender un proveedor no apto<br>• Negociar descuentos y condiciones<br>• Solicitar auditoría a proveedores críticos<br>• Rechazar entregas fuera de especificación</td>
+                </tr>
+                <tr>
+                    <td><strong>Relaciones Internas</strong></td>
+                    <td>Reporta a: Gerente General | Colabora con: Finanzas, Calidad, Producción, Comercial</td>
+                </tr>
+                <tr>
+                    <td><strong>Indicadores de Desempeño</strong></td>
+                    <td>• % de entregas a tiempo (meta: 95%)<br>• Índice de calidad de proveedores (IDP promedio)<br>• Incidentes de no conformidad (meta: ≤2 mensuales)<br>• Costo promedio de insumos vs. presupuesto</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>4) JEFE COMERCIAL Y MARKETING</h5>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Código de Puesto</strong></td>
+                    <td>COM-002</td>
+                </tr>
+                <tr>
+                    <td><strong>Denominación</strong></td>
+                    <td>Jefe Comercial y Marketing</td>
+                </tr>
+                <tr>
+                    <td><strong>Área/Departamento</strong></td>
+                    <td>Comercialización y Ventas</td>
+                </tr>
+                <tr>
+                    <td><strong>Propósito del Puesto</strong></td>
+                    <td>Posicionar la marca Pastelitos S.A. en el mercado, cumplir metas de ventas y garantizar la satisfacción y fidelización de clientes.</td>
+                </tr>
+                <tr>
+                    <td><strong>Responsabilidades Principales</strong></td>
+                    <td>• Diseñar e implementar estrategias comerciales y de marketing<br>• Gestionar redes sociales y canales digitales<br>• Medir satisfacción del cliente (NPS, encuestas)<br>• Ejecutar promociones y programas de lealtad<br>• Analizar comportamiento del mercado y competencia<br>• Supervisa vendedores y equipo comercial<br>• Coordinar con Producción sobre disponibilidad de productos</td>
+                </tr>
+                <tr>
+                    <td><strong>Requisitos Educativos</strong></td>
+                    <td>• Educación: Licenciatura en Marketing, Administración o Comercial<br>• Certificaciones: Curso en marketing digital (deseable)</td>
+                </tr>
+                <tr>
+                    <td><strong>Experiencia Requerida</strong></td>
+                    <td>• Mínimo 3-4 años en ventas o marketing<br>• Experiencia en sector alimentos o FMCG (deseable)<br>• Experiencia en gestión de redes sociales</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Técnicas</strong></td>
+                    <td>• Estrategia comercial y de marketing<br>• Análisis de datos de ventas y mercado<br>• Gestión de redes sociales e IG<br>• Manejo de CRM y herramientas de venta<br>• Conocimiento del sector alimentario</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Conductuales</strong></td>
+                    <td>• Creatividad e innovación<br>• Visión comercial<br>• Análisis estratégico<br>• Liderazgo de equipos<br>• Orientación a resultados y metas</td>
+                </tr>
+                <tr>
+                    <td><strong>Autoridad</strong></td>
+                    <td>• Diseñar promociones dentro del presupuesto<br>• Autorizar descuentos hasta 15% en volumen<br>• Coordinar con Producción sobre cambios de demanda<br>• Ejecutar campañas de marketing</td>
+                </tr>
+                <tr>
+                    <td><strong>Relaciones Internas</strong></td>
+                    <td>Reporta a: Gerente General | Supervisa a: Vendedores, equipo comercial | Colabora con: Producción, Finanzas, Calidad</td>
+                </tr>
+                <tr>
+                    <td><strong>Indicadores de Desempeño</strong></td>
+                    <td>• Volumen de ventas mensual y crecimiento %<br>• Índice de satisfacción del cliente (NPS meta: 50+)<br>• Alcance digital y engagement en redes<br>• Número de clientes nuevos vs. retenidos</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>5) JEFE DE PRODUCCIÓN Y OPERACIONES</h5>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Código de Puesto</strong></td>
+                    <td>PRD-001</td>
+                </tr>
+                <tr>
+                    <td><strong>Denominación</strong></td>
+                    <td>Jefe de Producción y Operaciones</td>
+                </tr>
+                <tr>
+                    <td><strong>Área/Departamento</strong></td>
+                    <td>Producción y Operaciones</td>
+                </tr>
+                <tr>
+                    <td><strong>Propósito del Puesto</strong></td>
+                    <td>Transformar eficientemente los insumos en productos finales de alta calidad, cumpliendo con tiempos de entrega, estándares de inocuidad alimentaria y procesos ISO 9001.</td>
+                </tr>
+                <tr>
+                    <td><strong>Responsabilidades Principales</strong></td>
+                    <td>• Planificar y programar producción diaria/semanal<br>• Supervisar procesos de producción y calidad del producto<br>• Gestionar inventario de insumos en planta<br>• Coordinar con Compras sobre necesidades de materiales<br>• Capacitar y supervisar personal de cocina<br>• Implementar BPM (Buenas Prácticas de Manufactura)<br>• Controlar desperdicios y eficiencia productiva</td>
+                </tr>
+                <tr>
+                    <td><strong>Requisitos Educativos</strong></td>
+                    <td>• Educación: Licenciatura en Ingeniería de Alimentos, Técnico en Producción o equivalente<br>• Certificaciones: BPM, HACCP, manipulación de alimentos obligatoria</td>
+                </tr>
+                <tr>
+                    <td><strong>Experiencia Requerida</strong></td>
+                    <td>• Mínimo 4-5 años en supervisión de producción<br>• Experiencia en pastelería/alimentos (obligatorio)<br>• Experiencia en procesos con estándares de calidad</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Técnicas</strong></td>
+                    <td>• Conocimiento de procesos de producción de pastelería<br>• Gestión de calidad y HACCP<br>• Planificación de producción<br>• Conocimiento de maquinaria alimentaria<br>• BPM y normas sanitarias</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Conductuales</strong></td>
+                    <td>• Liderazgo operativo<br>• Capacidad de decisión rápida<br>• Orientación a calidad<br>• Resolución de problemas<br>• Comunicación clara con equipos</td>
+                </tr>
+                <tr>
+                    <td><strong>Autoridad</strong></td>
+                    <td>• Detener producción ante riesgo de calidad o inocuidad<br>• Autorizar cambios en procesos menores<br>• Requerir materiales de Compras<br>• Suspender personal por incumplimiento de normas</td>
+                </tr>
+                <tr>
+                    <td><strong>Relaciones Internas</strong></td>
+                    <td>Reporta a: Gerente General | Supervisa a: Pasteleros, operarios, auxiliares | Colabora con: Calidad, Compras, Comercial, Finanzas</td>
+                </tr>
+                <tr>
+                    <td><strong>Indicadores de Desempeño</strong></td>
+                    <td>• Eficiencia productiva (% de capacidad utilizada, meta: 85%)<br>• Cumplimiento de pedidos a tiempo (meta: 98%)<br>• Nivel de merma/desperdicio (meta: ≤5%)<br>• Incidentes de no conformidad en producción</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>6) JEFE DE CALIDAD Y PROCESOS</h5>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Código de Puesto</strong></td>
+                    <td>CAL-001</td>
+                </tr>
+                <tr>
+                    <td><strong>Denominación</strong></td>
+                    <td>Jefe de Calidad y Procesos</td>
+                </tr>
+                <tr>
+                    <td><strong>Área/Departamento</strong></td>
+                    <td>Calidad e Inocuidad Alimentaria</td>
+                </tr>
+                <tr>
+                    <td><strong>Propósito del Puesto</strong></td>
+                    <td>Garantizar el cumplimiento de procesos y estándares internos (ISO 9001), inocuidad alimentaria (HACCP) y mejora continua en toda la organización.</td>
+                </tr>
+                <tr>
+                    <td><strong>Responsabilidades Principales</strong></td>
+                    <td>• Supervisar controles de calidad en producto terminado<br>• Documentar y documentar procesos clave<br>• Gestionar no conformidades e implementar acciones correctivas<br>• Evaluar riesgos operativos y de inocuidad alimentaria<br>• Coordinar auditorías internas y externas<br>• Implementar y mantener HACCP<br>• Coordinar programa de mejora continua</td>
+                </tr>
+                <tr>
+                    <td><strong>Requisitos Educativos</strong></td>
+                    <td>• Educación: Licenciatura en Ingeniería de Alimentos, Ingeniería en Calidad, Ingeniería Industrial o equivalente<br>• Certificaciones: ISO 9001:2015, HACCP, BPM obligatorios</td>
+                </tr>
+                <tr>
+                    <td><strong>Experiencia Requerida</strong></td>
+                    <td>• Mínimo 3-4 años en gestión de calidad<br>• Experiencia en empresas de alimentos bajo estándares ISO<br>• Experiencia en auditoría interna ISO 9001</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Técnicas</strong></td>
+                    <td>• ISO 9001:2015 y requisitos de SGC<br>• HACCP y análisis de riesgos<br>• Técnicas de auditoría interna<br>• BPM y legislación sanitaria<br>• Herramientas de calidad (Pareto, Ishikawa, etc.)</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Conductuales</strong></td>
+                    <td>• Atención extrema al detalle<br>• Pensamiento analítico<br>• Independencia y objetividad<br>• Comunicación clara<br>• Compromiso con calidad</td>
+                </tr>
+                <tr>
+                    <td><strong>Autoridad</strong></td>
+                    <td>• Detener producción por riesgo de calidad/inocuidad<br>• Solicitar correcciones en procesos<br>• Emitir acta de no conformidad<br>• Requerir investigación de desviaciones</td>
+                </tr>
+                <tr>
+                    <td><strong>Relaciones Internas</strong></td>
+                    <td>Reporta a: Gerente General | Colabora con: Producción, Compras, Finanzas, Comercial, Talento Humano</td>
+                </tr>
+                <tr>
+                    <td><strong>Indicadores de Desempeño</strong></td>
+                    <td>• % de productos defectuosos (meta: 0-2%)<br>• Incidentes registrados y cierre de NC (meta: 100% cierre)<br>• Cumplimiento de procedimientos auditado (meta: 95%)<br>• Conformidades ISO en auditorías (meta: 100%)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>7) JEFE DE TALENTO HUMANO</h5>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Código de Puesto</strong></td>
+                    <td>RH-001</td>
+                </tr>
+                <tr>
+                    <td><strong>Denominación</strong></td>
+                    <td>Jefe de Talento Humano</td>
+                </tr>
+                <tr>
+                    <td><strong>Área/Departamento</strong></td>
+                    <td>Recursos Humanos</td>
+                </tr>
+                <tr>
+                    <td><strong>Propósito del Puesto</strong></td>
+                    <td>Gestionar el capital humano, asegurar clima laboral óptimo, desarrollo de competencias alineadas con ISO 9001 y cumplimiento de requisitos legales laborales.</td>
+                </tr>
+                <tr>
+                    <td><strong>Responsabilidades Principales</strong></td>
+                    <td>• Reclutar, seleccionar e integrar personal<br>• Diseñar e implementar programas de capacitación<br>• Gestionar nómina, beneficios y relaciones laborales<br>• Evaluar desempeño y clima laboral<br>• Cumplimiento con requisitos legales laborales<br>• Gestionar relaciones con empleados<br>• Coordinar toma de conciencia sobre calidad ISO 9001</td>
+                </tr>
+                <tr>
+                    <td><strong>Requisitos Educativos</strong></td>
+                    <td>• Educación: Licenciatura en Gestión de Recursos Humanos, Administración o carrera afín<br>• Certificaciones: Curso en relaciones laborales y legislación (deseable)</td>
+                </tr>
+                <tr>
+                    <td><strong>Experiencia Requerida</strong></td>
+                    <td>• Mínimo 2-3 años en gestión de RRHH<br>• Experiencia en empresas de producción (deseable)<br>• Experiencia en cumplimiento laboral</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Técnicas</strong></td>
+                    <td>• Gestión de reclutamiento y selección<br>• Nómina y beneficios<br>• Conocimiento de legislación laboral ecuatoriana<br>• Evaluación de desempeño<br>• Manejo de software RRHH</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Conductuales</strong></td>
+                    <td>• Empatía y escucha activa<br>• Mediación y resolución de conflictos<br>• Comunicación clara<br>• Confidencialidad<br>• Orientación a bienestar laboral</td>
+                </tr>
+                <tr>
+                    <td><strong>Autoridad</strong></td>
+                    <td>• Ejecutar procesos de selección y contratación<br>• Diseñar y ejecutar programas de capacitación<br>• Procesar disponen de nómina y prestaciones<br>• Gestionar relaciones laborales y mediación</td>
+                </tr>
+                <tr>
+                    <td><strong>Relaciones Internas</strong></td>
+                    <td>Reporta a: Gerente General | Colabora con: Todos los departamentos</td>
+                </tr>
+                <tr>
+                    <td><strong>Indicadores de Desempeño</strong></td>
+                    <td>• Rotación de personal (meta: ≤10% anual)<br>• Índice de clima laboral (encuestas, meta: ≥3.5/5.0)<br>• Horas de capacitación anual por empleado (meta: ≥20 h)<br>• Cumplimiento de nómina y legal (meta: 100%)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>8) PASTELERO/CONFITERO ESPECIALIZADO</h5>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Código de Puesto</strong></td>
+                    <td>PRD-002</td>
+                </tr>
+                <tr>
+                    <td><strong>Denominación</strong></td>
+                    <td>Pastelero/Confitero Especializado</td>
+                </tr>
+                <tr>
+                    <td><strong>Área/Departamento</strong></td>
+                    <td>Producción</td>
+                </tr>
+                <tr>
+                    <td><strong>Nivel</strong></td>
+                    <td>Técnico Especializado</td>
+                </tr>
+                <tr>
+                    <td><strong>Propósito del Puesto</strong></td>
+                    <td>Elaborar productos de pastelería (pasteles, especialmente pastel de zanahoria) con estricto cumplimiento de recetas, estándares de calidad, BPM e inocuidad alimentaria.</td>
+                </tr>
+                <tr>
+                    <td><strong>Responsabilidades Principales</strong></td>
+                    <td>• Elaborar productos según recetas estándar<br>• Controlar peso, medidas y tiempos de cocción<br>• Inspeccionar materias primas antes de usar<br>• Mantener estándares de presentación y calidad<br>• Cumplir con BPM (higiene personal, limpieza)<br>• Reportar desviaciones o problemas de calidad<br>• Mantener equipos limpios y en orden</td>
+                </tr>
+                <tr>
+                    <td><strong>Requisitos Educativos</strong></td>
+                    <td>• Educación: Carrera técnica en Pastelería, Gastronomía o equivalente<br>• Certificaciones: Manipulación de alimentos OBLIGATORIA, BPM</td>
+                </tr>
+                <tr>
+                    <td><strong>Experiencia Requerida</strong></td>
+                    <td>• Mínimo 3-4 años como pastelero profesional<br>• Experiencia comprobada en pastelería comercial<br>• Experiencia con productos similares (pasteles, repostería)</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Técnicas</strong></td>
+                    <td>• Técnicas de pastelería y confitería<br>• Conocimiento de ingredientes y combinaciones<br>• Operación de hornos y equipos de cocina<br>• Gestión de tiempos de cocción<br>• BPM e higiene alimentaria</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Conductuales</strong></td>
+                    <td>• Precisión en medidas y recetas<br>• Creatividad bajo estructura<br>• Orientación a calidad<br>• Responsabilidad<br>• Trabajo en equipo</td>
+                </tr>
+                <tr>
+                    <td><strong>Condiciones Físicas</strong></td>
+                    <td>• Ambiente de cocina industrial (calor, ruido moderado)<br>• Trabajo de pie prolongado (6-8 horas)<br>• Esfuerzo físico moderado a alto<br>• Riesgos: quemaduras, cortes, exposición a calor<br>• EPP requerido: Gorro, delantal, zapatos antideslizantes</td>
+                </tr>
+                <tr>
+                    <td><strong>Relaciones Internas</strong></td>
+                    <td>Reporta a: Jefe de Producción | Colabora con: Operarios, Calidad, Compras</td>
+                </tr>
+                <tr>
+                    <td><strong>Indicadores de Desempeño</strong></td>
+                    <td>• Productos conforme a especificación (meta: 98%+)<br>• Cumplimiento de cronograma de producción<br>• Incidentes de no conformidad (meta: 0)<br>• Eficiencia: kg producido/hora (meta: 15 kg/h)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>9) OPERARIO DE PRODUCCIÓN</h5>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Código de Puesto</strong></td>
+                    <td>PRD-003</td>
+                </tr>
+                <tr>
+                    <td><strong>Denominación</strong></td>
+                    <td>Operario de Producción</td>
+                </tr>
+                <tr>
+                    <td><strong>Área/Departamento</strong></td>
+                    <td>Producción</td>
+                </tr>
+                <tr>
+                    <td><strong>Nivel</strong></td>
+                    <td>Operativo</td>
+                </tr>
+                <tr>
+                    <td><strong>Propósito del Puesto</strong></td>
+                    <td>Ejecutar procesos de producción, empaque, limpieza y operaciones de apoyo, asegurando cumplimiento de instrucciones, BPM y seguridad laboral.</td>
+                </tr>
+                <tr>
+                    <td><strong>Responsabilidades Principales</strong></td>
+                    <td>• Ejecutar procesos de producción según instrucciones<br>• Operar maquinaria y equipos de producción<br>• Empacar productos según especificaciones<br>• Realizar actividades de limpieza y desinfección<br>• Reportar incidentes y problemas operativos<br>• Cumplir con normas de seguridad y BPM<br>• Mantener orden y limpieza en área de trabajo</td>
+                </tr>
+                <tr>
+                    <td><strong>Requisitos Educativos</strong></td>
+                    <td>• Educación: Educación media completa (secundario)<br>• Certificaciones: Manipulación de alimentos OBLIGATORIA, Curso básico de seguridad</td>
+                </tr>
+                <tr>
+                    <td><strong>Experiencia Requerida</strong></td>
+                    <td>• Experiencia deseable: 1-2 años en línea de producción<br>• Experiencia con maquinaria alimentaria (deseable)<br>• No aplica experiencia previa si capacita internamente</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Técnicas</strong></td>
+                    <td>• Operación básica de equipos<br>• Conocimiento de BPM<br>• Capacidad de seguir instrucciones precisas<br>• Lectura de instructivos<br>• Higiene y desinfección</td>
+                </tr>
+                <tr>
+                    <td><strong>Competencias Conductuales</strong></td>
+                    <td>• Atención al detalle<br>• Disciplina y cumplimiento<br>• Trabajo en equipo<br>• Capacidad de aprendizaje rápido<br>• Responsabilidad</td>
+                </tr>
+                <tr>
+                    <td><strong>Condiciones Físicas</strong></td>
+                    <td>• Ambiente de planta de producción (temperaturas variables)<br>• Trabajo de pie 6-8 horas<br>• Esfuerzo físico moderado<br>• Riesgos: quemaduras, cortes, patógenos alimentarios<br>• EPP requerido: Gorro, uniforme, guantes, zapatos antideslizantes, mascarilla</td>
+                </tr>
+                <tr>
+                    <td><strong>Relaciones Internas</strong></td>
+                    <td>Reporta a: Jefe de Producción / Pastelero | Colabora con: Otros operarios, Calidad</td>
+                </tr>
+                <tr>
+                    <td><strong>Indicadores de Desempeño</strong></td>
+                    <td>• Cumplimiento de cantidad diaria de producción<br>• Tasa de defectos identificados (meta: ≤3%)<br>• Incidentes de no conformidad en área (meta: 0)<br>• Cumplimiento de estándares de limpieza<br>• Puntualidad y asistencia (meta: 100%)</td>
+                </tr>
+            </tbody>
+        </table>
+                <tr>
+                    <th>Campo</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Objetivo</td>
+                    <td>Garantizar abastecimiento oportuno y calidad de insumos.</td>
+                </tr>
+                <tr>
+                    <td>Dependencia jerárquica</td>
+                    <td>Reporta al Gerente General.</td>
+                </tr>
+                <tr>
+                    <td>Relación con pares</td>
+                    <td>Finanzas, Calidad y Comercial.</td>
+                </tr>
+                <tr>
+                    <td>Responsabilidades principales</td>
+                    <td>Seleccionar y homologar proveedores, aplicar matriz IDP, negociar precios y condiciones, gestionar no conformidades y realizar evaluaciones semestrales.</td>
+                </tr>
+                <tr>
+                    <td>Autoridad</td>
+                    <td>Suspender proveedor no apto, negociar condiciones comerciales y solicitar auditoría a proveedor.</td>
+                </tr>
+                <tr>
+                    <td>Competencias</td>
+                    <td>Negociación, evaluación técnica y organización documental.</td>
+                </tr>
+                <tr>
+                    <td>Indicadores</td>
+                    <td>Porcentaje de entregas a tiempo, nivel promedio IDP e incidentes de no conformidad.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+        <h2>6. Planificación</h2>
+        <h3>6.1 Acciones para abordar riesgos y oportunidades</h3>
+        <h4>Riesgos estratégicos (Gerencia)</h4>
+        <ul>
+            <li><span>Pérdida de calidad por crecimiento acelerado.</span></li>
+            <li><span>Dependencia de un solo producto.</span></li>
+            <li><span>Incremento de costos de insumos.</span></li>
+            <li><span>Descoordinación interna entre departamentos.</span></li>
+        </ul>
+        <p>Medidas preventivas: revisión trimestral financiera, evaluación semestral de proveedores, coordinación entre departamentos y planificación presupuestaria antes de expansión.</p>
+
+        <h4>Análisis FODA para riesgos y oportunidades</h4>
+        <h5>Fortalezas financieras</h5>
+        <ul>
+            <li><span>Margen de ganancia neto favorable.</span></li>
+            <li><span>Estructura de financiamiento equilibrada (85% fondos propios, 15% endeudamiento).</span></li>
+            <li><span>Relaciones estratégicas con proveedores para mejores costos.</span></li>
+            <li><span>Reinversión de utilidades en mejora y expansión.</span></li>
+        </ul>
+
+        <h5>Debilidades internas administrativas</h5>
+        <ul>
+            <li><span>Deficiencias de comunicación interdepartamental.</span></li>
+            <li><span>Ausencia de infraestructura de respaldo energético.</span></li>
+            <li><span>Dependencia de un solo canal de venta.</span></li>
+            <li><span>Baja diversificación de productos.</span></li>
+        </ul>
+
+        <h5>Oportunidades económicas del mercado</h5>
+        <ul>
+            <li><span>Posibilidad de ingresar a nuevos mercados.</span></li>
+            <li><span>Ampliación de cartera de clientes.</span></li>
+            <li><span>Implementación de canales de venta en línea.</span></li>
+            <li><span>Crecimiento por disminución de eficiencia de competidores.</span></li>
+        </ul>
+
+        <h5>Amenazas financieras y de costos</h5>
+        <ul>
+            <li><span>Entrada de nuevos competidores.</span></li>
+            <li><span>Crecimiento de productos sustitutos.</span></li>
+            <li><span>Presión inflacionaria en insumos.</span></li>
+            <li><span>Interrupciones operativas por eventos críticos.</span></li>
+        </ul>
+
+        <h4>6.1.1 Matriz FODA cruzada</h4>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Estrategia</th>
+                    <th>Combinación</th>
+                    <th>Estrategias propuestas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>FO</td>
+                    <td>Fortalezas + Oportunidades</td>
+                    <td>Aprovechar liquidez y margen para nuevos mercados; reforzar relaciones con proveedores para expansión digital y optimización de costos.</td>
+                </tr>
+                <tr>
+                    <td>FA</td>
+                    <td>Fortalezas + Amenazas</td>
+                    <td>Usar estabilidad financiera y bajo endeudamiento para enfrentar competencia e inflación; diversificar proveedores.</td>
+                </tr>
+                <tr>
+                    <td>DO</td>
+                    <td>Debilidades + Oportunidades</td>
+                    <td>Mejorar comunicación interna, implementar canales digitales y diversificar productos.</td>
+                </tr>
+                <tr>
+                    <td>DA</td>
+                    <td>Debilidades + Amenazas</td>
+                    <td>Desarrollar respaldo energético y contingencias; reducir dependencia de canal único y mejorar coordinación administrativa.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>6.1.2 Estrategias derivadas del análisis FODA</h4>
+        <ol>
+            <li><span><strong>Expansión de mercado y canales digitales:</strong> ingreso a nuevos mercados y fortalecimiento de ventas en línea.</span></li>
+            <li><span><strong>Diversificación de productos y proveedores:</strong> ampliar portafolio y reducir riesgo por escasez/inflación.</span></li>
+            <li><span><strong>Fortalecimiento de coordinación interna:</strong> mejorar comunicación y seguimiento financiero-operativo.</span></li>
+            <li><span><strong>Gestión de riesgos operativos:</strong> infraestructura de respaldo y protocolos de contingencia.</span></li>
+            <li><span><strong>Optimización de costos:</strong> mejores condiciones con proveedores y eficiencia operativa.</span></li>
+        </ol>
+
+        <h4>6.1 Gestión de riesgos en abastecimiento</h4>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Riesgo</th>
+                    <th>Impacto</th>
+                    <th>Mitigación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Escasez de zanahoria</td><td>Crítico</td><td>Proveedor alterno.</td></tr>
+                <tr><td>Inflación</td><td>Alto</td><td>Compras por volumen.</td></tr>
+                <tr><td>Cortes eléctricos</td><td>Alto</td><td>Mantenimiento preventivo.</td></tr>
+                <tr><td>Rotura de huevos</td><td>Medio</td><td>Transporte reforzado.</td></tr>
+                <tr><td>Descoordinación</td><td>Medio</td><td>Reunión semanal.</td></tr>
+            </tbody>
+        </table>
+
+        <h4>6.1 Riesgos operativos identificados (producción)</h4>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Riesgo</th>
+                    <th>Impacto</th>
+                    <th>Acción preventiva</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Corte de energía</td><td>Alto</td><td>Uso de generador o reprogramación.</td></tr>
+                <tr><td>Fallo del horno</td><td>Alto</td><td>Mantenimiento preventivo trimestral.</td></tr>
+                <tr><td>Materia prima en mal estado</td><td>Alto</td><td>Control previo a producción.</td></tr>
+                <tr><td>Error humano en receta</td><td>Medio</td><td>Uso de receta estandarizada.</td></tr>
+                <tr><td>Retraso en pedidos</td><td>Medio</td><td>Planificación diaria.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6.2 Objetivos de la calidad y planificación para lograrlos</h3>
+        <ul>
+            <li><span>Mantener posicionamiento de marca basado en calidad.</span></li>
+            <li><span>Fortalecer reputación local.</span></li>
+            <li><span>Implementar canal digital y futura tienda en línea.</span></li>
+            <li><span>Consolidar procesos internos organizados.</span></li>
+            <li><span>Preparar bases para expansión futura.</span></li>
+        </ul>
+        <p>Los indicadores cuantitativos específicos serán definidos tras el primer ciclo operativo.</p>
+
+        <h3>6.3 Planificación de los cambios</h3>
+        <p>El sistema documenta la planificación por fases: fase inicial de estructuración, fase de implementación con datos reales y fase de mejora continua con ajustes estratégicos.</p>
+
+        <h2>7. Apoyo</h2>
+        <h3>7.1 Recursos</h3>
+        <h4>7.1.1 Materia prima</h4>
+        <ul>
+            <li><span>Zanahoria rallada.</span></li>
+            <li><span>Harina de trigo.</span></li>
+            <li><span>Azúcar.</span></li>
+            <li><span>Huevos.</span></li>
+            <li><span>Aceite o mantequilla.</span></li>
+            <li><span>Polvo de hornear.</span></li>
+            <li><span>Canela (opcional).</span></li>
+            <li><span>Nueces (opcional).</span></li>
+            <li><span>Queso crema (para cobertura).</span></li>
+        </ul>
+
+        <h4>7.1.2 Recursos operativos</h4>
+        <ul>
+            <li><span>Horno.</span></li>
+            <li><span>Batidora.</span></li>
+            <li><span>Moldes.</span></li>
+            <li><span>Rallador.</span></li>
+            <li><span>Espátula.</span></li>
+            <li><span>Energía eléctrica.</span></li>
+        </ul>
+
+        <h4>7.1.3 Abastecimiento y soporte externo</h4>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Categoría</th>
+                    <th>Ítem</th>
+                    <th>Especificación técnica clave</th>
+                    <th>Proveedor sugerido</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Materia Prima</td><td>Zanahoria</td><td>Grado A, naranja intenso, lavada, libre de brotes.</td><td>Productor Local (Machachi)</td></tr>
+                <tr><td>Materia Prima</td><td>Harina</td><td>Especial para repostería, tamizada, 0% humedad.</td><td>Distribuidor Nacional</td></tr>
+                <tr><td>Materia Prima</td><td>Huevos</td><td>Grado A, frescos (máximo 3 días de postura).</td><td>Granja Avícola Mejía</td></tr>
+                <tr><td>Empaque</td><td>Cajas</td><td>Cartón microcorrugado con logo impreso.</td><td>Gráfica Especializada</td></tr>
+            </tbody>
+        </table>
+
+        <h3>7.2 Competencia</h3>
+        <p>Las competencias requeridas por cargo se detallan en el manual de puestos y se aplican por rol estratégico y operativo (Gerencia, Finanzas, Compras, Calidad).</p>
+
+        <h3>7.3 Toma de conciencia</h3>
+        <p>La política de calidad y la política financiera se comunican como lineamientos de actuación para sostener calidad, inocuidad, control de costos y mejora continua.</p>
+
+        <h3>7.4 Comunicación</h3>
+        <p>Se reconoce como necesidad mejorar la coordinación interdepartamental; se establece seguimiento periódico para decisiones colegiadas y reducción de descoordinaciones.</p>
+
+        <h3>7.5 Información documentada</h3>
+        <p>Este consolidado funciona como referencia de fase inicial. En fase 2 se formalizará control de versiones, codificación documental, responsables de aprobación y tiempos de retención.</p>
+
+        <h2>8. Operación</h2>
+        <h3>8.1 Planificación y control operacional</h3>
+        <p>La operación integra compras, producción, comercialización y control de calidad con enfoque preventivo y trazabilidad inicial de actividades.</p>
+
+        <h3>8.2 Requisitos para los productos y servicios</h3>
+        <h4>8.2.1 Requisitos del cliente y análisis de mercado</h4>
+        <p><strong>Ubicación del mercado:</strong> Machachi – Centro.</p>
+
+        <h5>Segmentación geográfica</h5>
+        <ul>
+            <li><span>Alta circulación peatonal.</span></li>
+            <li><span>Actividad bancaria y administrativa.</span></li>
+            <li><span>Instituciones educativas.</span></li>
+            <li><span>Comercio tradicional y Mercado Central.</span></li>
+        </ul>
+        <p><strong>Proyección:</strong> expansión mediante domicilio y canal digital.</p>
+
+        <h5>Segmentación demográfica</h5>
+        <p><strong>Compradores:</strong> adultos de 23 a 55 años, padres de familia, trabajadores y emprendedores locales.</p>
+        <p><strong>Consumidores:</strong> niños, adolescentes, adultos y adultos mayores.</p>
+
+        <h5>Segmentación psicográfica</h5>
+        <ul>
+            <li><span>Valoración de productos artesanales.</span></li>
+            <li><span>Preferencia por opciones menos industrializadas.</span></li>
+            <li><span>Apoyo a negocios locales.</span></li>
+            <li><span>Prioridad a calidad sobre precio bajo.</span></li>
+            <li><span>Búsqueda de experiencia, no solo producto.</span></li>
+        </ul>
+
+        <h5>Segmentación conductual</h5>
+        <ul>
+            <li><span>Compras planificadas para eventos.</span></li>
+            <li><span>Compras impulsivas por antojo.</span></li>
+            <li><span>Clientes recurrentes mensuales.</span></li>
+            <li><span>Compras corporativas para reuniones internas.</span></li>
+        </ul>
+
+        <h5>Perfiles de cliente</h5>
+        <p><strong>Perfil 1:</strong> Padre/Madre Responsable Moderno (25-45 años), valora higiene, cumplimiento y sabor constante.</p>
+        <p><strong>Perfil 2:</strong> Trabajador del Centro (23-40 años), requiere atención ágil y producto fresco.</p>
+        <p><strong>Perfil 3:</strong> Cliente Corporativo, requiere puntualidad, formalidad e imagen profesional.</p>
+
+        <h4>Análisis competitivo comparativo</h4>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Factor clave</th>
+                    <th>Panaderías tradicionales</th>
+                    <th>Ventas informales / mercado</th>
+                    <th>Pastelitos S.A.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Especialización</td><td>Baja</td><td>Nula</td><td>Alta</td></tr>
+                <tr><td>Identidad de Marca</td><td>Tradicional</td><td>No definida</td><td>Estratégica</td></tr>
+                <tr><td>Calidad Percibida</td><td>Variable</td><td>Variable</td><td>Estándar artesanal</td></tr>
+                <tr><td>Opciones Saludables</td><td>Limitadas</td><td>No estructuradas</td><td>Línea saludable</td></tr>
+                <tr><td>Experiencia de Compra</td><td>Básica</td><td>Transaccional</td><td>Personalizada</td></tr>
+                <tr><td>Marketing Digital</td><td>Poco trabajado</td><td>Inexistente</td><td>Plan activo</td></tr>
+                <tr><td>Fidelización</td><td>No formal</td><td>No aplica</td><td>Programa estructurado</td></tr>
+                <tr><td>Presentación del Producto</td><td>Funcional</td><td>Simple</td><td>Diferenciada</td></tr>
+                <tr><td>Proyección y Planificación</td><td>Empírica</td><td>Informal</td><td>Estratégica</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Propuesta de valor:</strong> “Pastelitos S.A ofrece el pastel de zanahoria artesanal referente en Machachi, combinando tradición, calidad y una experiencia personalizada para cada cliente.”</p>
+
+        <h5>Identidad visual de marca</h5>
+        <div style="text-align: center;">
+            <div class="contenedor-imagen" style="max-width: 45%;">
+                <img
+                    src="../logo.jpg"
+                    alt="Logo corporativo de Pastelitos S.A."
+                    class="imagen-deber"
+                    onerror="this.parentElement.innerHTML='<p>Error al cargar el logo de la empresa.</p>';">
+                <p class="pie-de-foto">Figura. Logo corporativo utilizado en el frente comercial y de marketing.</p>
+            </div>
+        </div>
+
+        <h3>8.3 Diseño y desarrollo de productos y servicios</h3>
+        <p>No aplicable en esta fase inicial (producto principal definido). Aplicará al incorporar líneas nuevas formalmente diseñadas y validadas.</p>
+
+        <h3>8.4 Control de procesos, productos y servicios suministrados externamente</h3>
+        <h4>8.4.1 Alcance administrativo</h4>
+        <p>Incluye compras de insumos directos, operativos y servicios externos con impacto en inocuidad, calidad y sabor del producto.</p>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Tipo de abastecimiento</th>
+                    <th>Elementos incluidos</th>
+                    <th>Exclusiones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Insumos directos</td>
+                    <td>Zanahoria, harina, huevos, azúcar, sal, polvo de hornear y agua purificada.</td>
+                    <td rowspan="3">Contratación de talento humano y estrategias de comercialización del producto terminado.</td>
+                </tr>
+                <tr>
+                    <td>Insumos operativos</td>
+                    <td>Cajas de cartón, blondas, etiquetas y químicos de higiene.</td>
+                </tr>
+                <tr>
+                    <td>Servicios externos</td>
+                    <td>Mantenimiento preventivo y correctivo de hornos y batidoras.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>8.4.2 Proceso de selección de proveedores</h4>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Tipo de proveedor</th>
+                    <th>Etapas o controles de selección</th>
+                    <th>Frecuencia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Corporativo e industrial</td>
+                    <td>Investigación (ARCSA - Agencia Nacional de Regulación, Control y Vigilancia Sanitaria), homologación (RUC y solvencia), prueba técnica y negociación de crédito (15-30 días).</td>
+                    <td>En proceso de alta y reevaluación semestral.</td>
+                </tr>
+                <tr>
+                    <td>Productor del campo (Machachi)</td>
+                    <td>Auditoría in situ, verificación de agua/suelo, formalización tributaria y entrega en planta &lt; 24h.</td>
+                    <td>Auditoría trimestral y seguimiento operativo continuo.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>8.4.3 Política corporativa de compras</h4>
+        <p><strong>Objetivo general:</strong> garantizar transparencia, calidad e inocuidad, junto con eficiencia financiera.</p>
+        <p><strong>Objetivos específicos:</strong> estandarizar selección, garantizar inocuidad, aplicar segregación de funciones, minimizar riesgos financieros y promover proveedores locales.</p>
+        <p><strong>Principios rectores:</strong> coherencia con receta original, excelencia operativa, imparcialidad, transparencia documental y fomento local (70% compras Cantón Mejía).</p>
+
+        <h4>8.4.4 Criterios de evaluación y matriz IDP</h4>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Criterio</th>
+                    <th>Peso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Calidad e Inocuidad</td><td>45%</td></tr>
+                <tr><td>Cumplimiento Logístico</td><td>25%</td></tr>
+                <tr><td>Costos y Finanzas</td><td>20%</td></tr>
+                <tr><td>Servicio y Respuesta</td><td>10%</td></tr>
+            </tbody>
+        </table>
+
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Criterio</th>
+                    <th>Peso</th>
+                    <th>Puntaje (1-5)</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Calidad e Inocuidad</td><td>45%</td><td></td><td></td></tr>
+                <tr><td>Cumplimiento Logístico</td><td>25%</td><td></td><td></td></tr>
+                <tr><td>Costos y Finanzas</td><td>20%</td><td></td><td></td></tr>
+                <tr><td>Servicio y Respuesta</td><td>10%</td><td></td><td></td></tr>
+            </tbody>
+        </table>
+        <p><strong>Escala:</strong> 4.1-5.0 Estratégico; 3.1-4.0 Condicionado; menor a 3.0 No apto. Evaluación semestral en fase inicial.</p>
+
+        <h4>8.4.5 Control de facturación y segregación de funciones</h4>
+        <p><strong>Triple Match:</strong> Orden de Compra = Guía de Recepción = Factura.</p>
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Etapa</th>
+                    <th>Responsable</th>
+                    <th>Control aplicado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Selección de proveedor</td>
+                    <td>Compras</td>
+                    <td>Valida cumplimiento técnico y documental.</td>
+                </tr>
+                <tr>
+                    <td>Recepción de insumos</td>
+                    <td>Almacén / Recepción</td>
+                    <td>Verifica calidad y conformidad con guía de recepción.</td>
+                </tr>
+                <tr>
+                    <td>Pago</td>
+                    <td>Finanzas</td>
+                    <td>Autoriza pago solo con Triple Match completo.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Ninguna persona controla el ciclo completo.</p>
+
+        <h3>8.5 Producción y provisión del servicio</h3>
+        <h4>8.5.1 Entradas</h4>
+        <p>Se consideran materia prima, recursos y talento humano del proceso de elaboración.</p>
+
+        <h4>8.5.2 Actividades del proceso</h4>
+        <ol>
+            <li><span>Lavado y pelado de la zanahoria.</span></li>
+            <li><span>Rallado de la zanahoria.</span></li>
+            <li><span>Mezcla de ingredientes secos.</span></li>
+            <li><span>Batido de ingredientes líquidos.</span></li>
+            <li><span>Integración homogénea de la mezcla.</span></li>
+            <li><span>Vertido en molde engrasado.</span></li>
+            <li><span>Horneado a 180°C durante 35-45 minutos.</span></li>
+            <li><span>Enfriado del pastel.</span></li>
+            <li><span>Preparación y aplicación de cobertura.</span></li>
+            <li><span>Decoración final.</span></li>
+        </ol>
+
+        <h4>8.5.3 Salidas</h4>
+        <ul>
+            <li><span>Pastel de zanahoria horneado y decorado.</span></li>
+            <li><span>Producto listo para consumo o venta.</span></li>
+        </ul>
+
+        <h3>8.6 Liberación de productos y servicios</h3>
+        <ul>
+            <li><span>Verificación visual de frescura de zanahoria.</span></li>
+            <li><span>Revisión de fecha de postura de huevos.</span></li>
+            <li><span>Control de temperatura del horno.</span></li>
+            <li><span>Revisión de textura y color final del pastel.</span></li>
+            <li><span>Verificación de presentación antes de entrega.</span></li>
+        </ul>
+
+        <h3>8.7 Control de las salidas no conformes</h3>
+        <p><strong>Procedimiento:</strong></p>
+        <ol>
+            <li><span>Registro en Acta de No Conformidad.</span></li>
+            <li><span>Notificación al proveedor.</span></li>
+            <li><span>Solicitud de reposición.</span></li>
+            <li><span>Reevaluación del IDP.</span></li>
+        </ol>
+
+        <h2>9. Evaluación del Desempeño</h2>
+        <h3>9.1 Seguimiento, medición, análisis y evaluación</h3>
+        <h4>Indicadores comerciales y financieros proyectados</h4>
+        <ul>
+            <li><span>Meta comercial inicial: 120 unidades mensuales, margen estimado 40%.</span></li>
+            <li><span>Precio promedio: $15.</span></li>
+            <li><span>Costo promedio: $9.</span></li>
+            <li><span>Utilidad por unidad: $6.</span></li>
+            <li><span>Utilidad mensual estimada: $720.</span></li>
+            <li><span>Proyección anual estimada: $8.640.</span></li>
+        </ul>
+
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>Indicador financiero</th>
+                    <th>Mensual</th>
+                    <th>Anual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Ingreso Total Bruto</td><td>$1.800</td><td>$21.600</td></tr>
+                <tr><td>Costo Total</td><td>$1.080</td><td>$12.960</td></tr>
+                <tr><td>Utilidad Neta</td><td>$720</td><td>$8.640</td></tr>
+            </tbody>
+        </table>
+        <p>Con estrategia diferenciada se proyecta alcanzar 150 unidades mensuales a los seis meses.</p>
+
+        <h4>Indicadores preliminares de compras</h4>
+        <ul>
+            <li><span>Porcentaje de entregas a tiempo.</span></li>
+            <li><span>Nivel promedio IDP.</span></li>
+            <li><span>Incidentes de no conformidad.</span></li>
+            <li><span>Variación de precios.</span></li>
+        </ul>
+
+        <h4>Indicadores operativos preliminares</h4>
+        <ul>
+            <li><span>Registro de productos defectuosos.</span></li>
+            <li><span>Tiempo promedio de producción por unidad.</span></li>
+            <li><span>Control de desperdicio de materia prima.</span></li>
+            <li><span>Nivel de cumplimiento de pedidos.</span></li>
+        </ul>
+
+        <h3>9.1.2 Satisfacción del cliente</h3>
+        <ul>
+            <li><span>Se identifican necesidades específicas del cliente.</span></li>
+            <li><span>Se analiza la competencia real del entorno.</span></li>
+            <li><span>Se establecen metas comerciales iniciales.</span></li>
+            <li><span>Se prevé implementación de mecanismos de medición de satisfacción.</span></li>
+            <li><span>Se promueve mejora continua desde la fase de planificación.</span></li>
+        </ul>
+
+        <h3>9.2 Auditoría interna</h3>
+        <p>Pendiente de implementación en fase 2, con programación, criterios, alcance, evidencias y reporte de hallazgos.</p>
+
+        <h3>9.3 Revisión por la dirección</h3>
+        <p>Revisión trimestral con estado de resultados, activos/pasivos/patrimonio, evaluación de desempeño general, revisión de riesgos y ajustes estratégicos.</p>
+        <p>Las decisiones estratégicas serán tomadas de manera colegiada entre jefes departamentales, bajo coordinación de Gerencia General.</p>
+
+        <h2>10. Mejora</h2>
+        <h3>10.1 Generalidades y estado del sistema</h3>
+        <p>Pastelitos S.A. se encuentra en fase de planificación del SGC bajo ISO 9001:2015 y del sistema de compras asociado.</p>
+        <ul>
+            <li><span>Se han definido procesos.</span></li>
+            <li><span>Se establecieron responsabilidades.</span></li>
+            <li><span>Se identificaron riesgos.</span></li>
+            <li><span>Se plantearon objetivos estratégicos.</span></li>
+            <li><span>Se estructuró mapa de procesos general.</span></li>
+            <li><span>Se establecieron criterios de evaluación de proveedores.</span></li>
+        </ul>
+        <p>La consolidación de métricas cuantitativas se realizará con datos reales de operación.</p>
+
+        <h3>10.2 No conformidad y acción correctiva</h3>
+        <p>Se aplica procedimiento de no conformidad en abastecimiento (registro, notificación, reposición y reevaluación), con expansión prevista a todas las áreas en fase 2.</p>
+
+        <h3>10.3 Mejora continua</h3>
+        <p>El sistema reconoce la mejora continua como eje de evolución por fases, fortaleciendo indicadores, registros y evidencias operativas conforme avance la implementación.</p>
+
+        <h2>Anexos</h2>
+        <h3>A. Referencia documental consolidada</h3>
+        <ul>
+            <li><span>01. Gerencia General.</span></li>
+            <li><span>02. Políticas del SGC.</span></li>
+            <li><span>03. Departamento Financiero (FODA y FODA cruzado).</span></li>
+            <li><span>04. Departamento Comercial y Marketing.</span></li>
+            <li><span>05. Manual Maestro de Gestión de Compras y Proveedores.</span></li>
+            <li><span>06. Manual de Puestos.</span></li>
+            <li><span>07. Organigrama Estructural.</span></li>
+            <li><span>08. Organigrama Funcional.</span></li>
+            <li><span>09. Proceso de Elaboración de Pastel de Zanahoria.</span></li>
+            <li><span>00. Índice Maestro SGC ISO 9001:2015.</span></li>
+        </ul>
+
+        <h3>B. Control del documento consolidado</h3>
+        <ul>
+            <li><span><strong>Versión:</strong> 1.0 (Fase inicial)</span></li>
+            <li><span><strong>Fecha:</strong> 02/03/2026</span></li>
+            <li><span><strong>Elaboración:</strong> Consolidado técnico del proyecto</span></li>
+            <li><span><strong>Aprobación:</strong> Gerencia General (pendiente de firma formal)</span></li>
+        </ul>
+
+        <div class="referencias">
+            <h2>Referencias</h2>
+            <p>Organización Internacional de Normalización (ISO). (2015). <em>ISO 9001:2015 Sistemas de gestión de la calidad — Requisitos</em>.</p>
+            <p>Documentación interna del proyecto Pastelitos S.A. (2026). <em>Sistema de Gestión de Calidad – Fase inicial</em>.</p>
+        </div>
+    </div>
+</body>
+</html>
